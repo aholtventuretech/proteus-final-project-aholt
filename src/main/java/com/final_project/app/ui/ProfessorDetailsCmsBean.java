@@ -80,6 +80,7 @@ public class ProfessorDetailsCmsBean extends AbstractContentElement
                 sb.append(getProfileView_AreaOfResearch(profile));
                 sb.append(getProfileView_OnSabbatical(profile));
             sb.append("</div>");
+            sb.append(getProfileView_BackButton());
             return sb.toString();
         }
 
@@ -140,6 +141,14 @@ public class ProfessorDetailsCmsBean extends AbstractContentElement
                 sb.append("<label for='profile_view_onSabbatical'>On Sabbatical</label>");
                 sb.append("<span id='profile_view_onSabbatical'>" + profile.getOnSabbatical() + "</span>");
             sb.append("</div>");
+            return sb.toString();
+        }
+
+        public String getProfileView_BackButton() {
+            StringBuilder sb = new StringBuilder();
+            sb.append("<form action='/faculty' method='get' class='back_form'>");
+                sb.append("<input type='submit' value='Go to Faculty' name='Back' id='back_button'/>");
+            sb.append("</form>");
             return sb.toString();
         }
     }

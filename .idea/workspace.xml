@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a9c316-71b2-4606-85d7-e808eb1253c3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorDetailsCmsBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorDetailsCmsBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/final_project/app/model/ProfessorProjMemberType.java" afterPath="$PROJECT_DIR$/src/main/java/com/final_project/app/model/ProfessorProjMemberType.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorProjProfileEditor.java" afterPath="$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorProjProfileEditor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -32,18 +33,7 @@
     <favorites_list name="final_project" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="ProfessorDetailsCmsBean.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorDetailsCmsBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55865103" vertical-offset="663" max-vertical-offset="2358">
-              <caret line="79" column="66" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -506,7 +496,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ShowExpiredConstraint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/ui/UserSelector.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorsPrincipalInfoEditor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/model/ProfessorProjMemberType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorProjMemberEditor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorProjMemberManagement.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/model/ProfessorsMembershipProcessor.java" />
@@ -521,6 +510,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/model/SlugNotPresentException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/model/ProfessorProjDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorListViewApp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/model/ProfessorProjMemberType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorProjProfileEditor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorDetailsCmsBean.java" />
       </list>
@@ -888,7 +878,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-5" y="-2" width="1930" height="1172" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -903,7 +893,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3285985" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24760383" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24760383" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1119,13 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/final_project/app/model/ProfessorProjMemberType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29032257" vertical-offset="0" max-vertical-offset="682">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/final_project/app/model/package-info.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="682">
@@ -1301,22 +1284,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorProjManagementApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.190616" vertical-offset="378" max-vertical-offset="2376">
-          <caret line="140" column="45" selection-start-line="140" selection-start-column="45" selection-end-line="140" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorProjDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6598241" vertical-offset="0" max-vertical-offset="1476">
-          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorListViewApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.7683284" vertical-offset="884" max-vertical-offset="3186">
@@ -1337,16 +1304,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorProjProfileEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8445748" vertical-offset="378" max-vertical-offset="1638">
-          <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.4457478" vertical-offset="722" max-vertical-offset="1620">
+          <caret line="75" column="50" selection-start-line="75" selection-start-column="50" selection-end-line="75" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/final_project/app/model/ProfessorProjMemberType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60703814" vertical-offset="0" max-vertical-offset="720">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorProjManagementApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3753666" vertical-offset="1694" max-vertical-offset="2376">
+          <caret line="78" column="53" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorProjDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6334311" vertical-offset="324" max-vertical-offset="1476">
+          <caret line="58" column="36" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/final_project/app/ui/ProfessorDetailsCmsBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55865103" vertical-offset="663" max-vertical-offset="2358">
-          <caret line="79" column="66" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.81524926" vertical-offset="1838" max-vertical-offset="2520">
+          <caret line="154" column="1" selection-start-line="154" selection-start-column="1" selection-end-line="154" selection-end-column="1" />
           <folding />
         </state>
       </provider>

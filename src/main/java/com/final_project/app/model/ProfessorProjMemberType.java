@@ -16,4 +16,19 @@ public enum ProfessorProjMemberType implements ProfessorsMemberType
 
     @Override
     public boolean manageProfessorMembers() { return true; }
+
+    public static ProfessorProjMemberType getMemberType(String memberTypeString) {
+        switch(memberTypeString) {
+            case "Lecturer":
+                return Lecturer;
+            case "AdjunctProfessor":
+                return AdjunctProfessor;
+            case "AssistantProfessor":
+                return AssistantProfessor;
+            case "AssociateProfessor":
+                return AssociateProfessor;
+            default:
+                return Professor;
+        }
+    }
 }

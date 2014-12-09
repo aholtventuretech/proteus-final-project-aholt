@@ -46,7 +46,6 @@ public class ProfessorProjProfileEditor extends EntityValueEditor<ProfessorProjP
         _areaOfResearchField = new Field();
 
         _typeCombo = new ComboBox(new SimpleListModel<>(ProfessorProjMemberType.values()));
-        _typeCombo.setEnabled(true);
 
         _dateJoinedCalendar = new Calendar();
 
@@ -65,7 +64,7 @@ public class ProfessorProjProfileEditor extends EntityValueEditor<ProfessorProjP
         _nameField.setText(value.getName());
         _slugField.setText(value.getSlug());
         _dateJoinedCalendar.setDate(value.getDateJoined());
-        _typeCombo.setSelectedObject(value.getProfessorType().toString());
+        _typeCombo.setSelectedObject(ProfessorProjMemberType.getMemberType(value.getProfessorType()));
         _areaOfResearchField.setText(value.getAreaOfResearch());
         _onSabbaticalChekbox.setSelected(value.getOnSabbatical());
 
@@ -82,7 +81,7 @@ public class ProfessorProjProfileEditor extends EntityValueEditor<ProfessorProjP
         value.setName(_nameField.getText());
         value.setSlug(_slugField.getText());
         value.setDateJoined(_dateJoinedCalendar.getDate());
-        value.setProfessorType(((ProfessorProjMemberType) _typeCombo.getSelectedObject()).toString());
+        value.setProfessorType(_typeCombo.getSelectedObject().toString());
         value.setAreaOfResearch(_areaOfResearchField.getText());
         value.setOnSabbatical(_onSabbaticalChekbox.isSelected());
         return value;
