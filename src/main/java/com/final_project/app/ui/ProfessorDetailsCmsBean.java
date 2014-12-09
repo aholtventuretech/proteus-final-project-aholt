@@ -146,9 +146,7 @@ public class ProfessorDetailsCmsBean extends AbstractContentElement
 
         public String getProfileView_BackButton() {
             StringBuilder sb = new StringBuilder();
-            sb.append("<form action='/faculty' method='get' class='back_form'>");
-                sb.append("<input type='submit' value='Go to Faculty' name='Back' id='back_button'/>");
-            sb.append("</form>");
+            sb.append("<a class='back_button' href='/faculty/'>Back</a>");
             return sb.toString();
         }
     }
