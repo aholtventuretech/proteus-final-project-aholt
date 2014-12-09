@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: net.proteusframework:proteusframework-core:0.10.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-core/0.10.2/c81b0d38f4e85eecb9036d9134ca53ab2a8ffc76/proteusframework-core-0.10.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-core/0.10.2/cfbf29af9f9a49d212dae06b8269dbd05ff171a0/proteusframework-core-0.10.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

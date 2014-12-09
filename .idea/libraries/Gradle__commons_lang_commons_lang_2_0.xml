@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: commons-lang:commons-lang:2.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.0/b2921b7862e7b26b43aa239c2c20cc16431a8ffd/commons-lang-2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.0/6b72c5df6ef337cddd160a3d9ef954574184dc4/commons-lang-2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

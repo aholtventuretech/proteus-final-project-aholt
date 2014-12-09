@@ -1,0 +1,864 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 40370176 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2671), pid=29828, tid=140509264692992
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_25-b17) (build 1.8.0_25-b17)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.25-b02 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fcaf414f800):  VMThread [stack: 0x00007fcadcbf4000,0x00007fcadccf5000] [id=29835]
+
+Stack: [0x00007fcadcbf4000,0x00007fcadccf5000],  sp=0x00007fcadccf32f0,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xa7923a]  VMError::report_and_die()+0x2ca
+V  [libjvm.so+0x4e552b]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x8b
+V  [libjvm.so+0x8e5613]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0x103
+V  [libjvm.so+0x8e5b69]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0x29
+V  [libjvm.so+0x8df83a]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x2a
+V  [libjvm.so+0x94f923]  PSVirtualSpace::expand_by(unsigned long)+0x53
+V  [libjvm.so+0x950d28]  PSYoungGen::resize_generation(unsigned long, unsigned long)+0xf8
+V  [libjvm.so+0x94fe82]  PSYoungGen::resize(unsigned long, unsigned long)+0x22
+V  [libjvm.so+0x94d163]  PSScavenge::invoke_no_policy()+0xf53
+V  [libjvm.so+0x94d8e1]  PSScavenge::invoke()+0x41
+V  [libjvm.so+0x907800]  ParallelScavengeHeap::failed_mem_allocate(unsigned long)+0x70
+V  [libjvm.so+0xa7a8b7]  VM_ParallelGCFailedAllocation::doit()+0x97
+V  [libjvm.so+0xa81fd5]  VM_Operation::evaluate()+0x55
+V  [libjvm.so+0xa803aa]  VMThread::evaluate_operation(VM_Operation*)+0xba
+V  [libjvm.so+0xa8072e]  VMThread::loop()+0x1ce
+V  [libjvm.so+0xa80ba0]  VMThread::run()+0x70
+V  [libjvm.so+0x8e7d48]  java_start(Thread*)+0x108
+
+VM_Operation (0x00007fcafb500dc0): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0x00007fcaf4014800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007fcaf500e000 JavaThread "Thread-4" daemon [_thread_blocked, id=29846, stack(0x00007fcab6933000,0x00007fcab6a34000)]
+  0x00007fcaf4faf800 JavaThread "HashSessionScavenger-0" daemon [_thread_blocked, id=29845, stack(0x00007fcab6c5a000,0x00007fcab6d5b000)]
+  0x00007fcaf4c7f000 JavaThread "Monitor Ctrl-Break" daemon [_thread_in_native, id=29844, stack(0x00007fcab7372000,0x00007fcab7473000)]
+  0x00007fcaf45fa000 JavaThread "Service Thread" daemon [_thread_blocked, id=29842, stack(0x00007fcab7dfe000,0x00007fcab7eff000)]
+  0x00007fcaf45f4800 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=29841, stack(0x00007fcab7eff000,0x00007fcab8000000)]
+  0x00007fcaf4603800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=29840, stack(0x00007fcadc078000,0x00007fcadc179000)]
+  0x00007fcaf4602000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=29839, stack(0x00007fcadc179000,0x00007fcadc27a000)]
+  0x00007fcaf4186800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=29838, stack(0x00007fcadc628000,0x00007fcadc729000)]
+  0x00007fcaf4158800 JavaThread "Finalizer" daemon [_thread_blocked, id=29837, stack(0x00007fcadc9f2000,0x00007fcadcaf3000)]
+  0x00007fcaf4156800 JavaThread "Reference Handler" daemon [_thread_blocked, id=29836, stack(0x00007fcadcaf3000,0x00007fcadcbf4000)]
+  0x00007fcaf4014800 JavaThread "main" [_thread_blocked, id=29830, stack(0x00007fcafb404000,0x00007fcafb505000)]
+
+Other Threads:
+=>0x00007fcaf414f800 VMThread [stack: 0x00007fcadcbf4000,0x00007fcadccf5000] [id=29835]
+  0x00007fcaf4620800 WatcherThread [stack: 0x00007fcab7cfd000,0x00007fcab7dfe000] [id=29843]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007fcaf4010e00] Threads_lock - owner thread: 0x00007fcaf414f800
+[0x00007fcaf4011300] Heap_lock - owner thread: 0x00007fcaf4014800
+
+Heap:
+ PSYoungGen      total 264704K, used 10797K [0x00000000eab00000, 0x00000000fd800000, 0x0000000100000000)
+  eden space 228352K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f8a00000)
+  from space 36352K, 29% used [0x00000000f8a00000,0x00000000f948b6d0,0x00000000fad80000)
+  to   space 35840K, 0% used [0x00000000fad80000,0x00000000fad80000,0x00000000fd080000)
+ ParOldGen       total 103936K, used 58597K [0x00000000c0000000, 0x00000000c6580000, 0x00000000eab00000)
+  object space 103936K, 56% used [0x00000000c0000000,0x00000000c3939718,0x00000000c6580000)
+ Metaspace       used 18594K, capacity 18768K, committed 19072K, reserved 1067008K
+  class space    used 2077K, capacity 2128K, committed 2176K, reserved 1048576K
+
+Card table byte_map: [0x00007fcae4dff000,0x00007fcae5000000] byte_map_base: 0x00007fcae47ff000
+
+Marking Bits: (ParMarkBitMap*) 0x00007fcafa8e02c0
+ Begin Bits: [0x00007fcade000000, 0x00007fcadf000000)
+ End Bits:   [0x00007fcadf000000, 0x00007fcae0000000)
+
+Polling page: 0x00007fcafb527000
+
+CodeCache: size=245760Kb used=9432Kb max_used=9448Kb free=236327Kb
+ bounds [0x00007fcae5000000, 0x00007fcae5950000, 0x00007fcaf4000000]
+ total_blobs=2808 nmethods=2455 adapters=267
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 5.834 Thread 0x00007fcaf4602000 nmethod 2492 0x00007fcae593c910 code [0x00007fcae593ca60, 0x00007fcae593cb78]
+Event: 5.841 Thread 0x00007fcaf4603800 2493       4       java.io.File::<init> (113 bytes)
+Event: 5.844 Thread 0x00007fcaf45f4800 2494   !   3       com.sun.proxy.$Proxy14::annotationType (29 bytes)
+Event: 5.844 Thread 0x00007fcaf45f4800 nmethod 2494 0x00007fcae593c210 code [0x00007fcae593c3a0, 0x00007fcae593c778]
+Event: 5.846 Thread 0x00007fcaf4603800 nmethod 2493 0x00007fcae593a190 code [0x00007fcae593a340, 0x00007fcae593a880]
+Event: 5.847 Thread 0x00007fcaf4602000 2495   !   4       sun.misc.URLClassPath$FileLoader::getResource (164 bytes)
+Event: 5.849 Thread 0x00007fcaf4603800 2496  s    4       java.util.jar.JarFile::getInputStream (89 bytes)
+Event: 5.860 Thread 0x00007fcaf45f4800 2497       3       org.springframework.asm.Type::getClassName (162 bytes)
+Event: 5.861 Thread 0x00007fcaf45f4800 nmethod 2497 0x00007fcae593cf50 code [0x00007fcae593d1e0, 0x00007fcae593e0e8]
+Event: 5.871 Thread 0x00007fcaf4603800 nmethod 2496 0x00007fcae5941310 code [0x00007fcae59415a0, 0x00007fcae5942880]
+
+GC Heap History (10 events):
+Event: 2.974 GC heap after
+Heap after GC invocations=10 (full 1):
+ PSYoungGen      total 140800K, used 22513K [0x00000000eab00000, 0x00000000f8580000, 0x0000000100000000)
+  eden space 118272K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f1e80000)
+  from space 22528K, 99% used [0x00000000f1e80000,0x00000000f347c440,0x00000000f3480000)
+  to   space 27136K, 0% used [0x00000000f6b00000,0x00000000f6b00000,0x00000000f8580000)
+ ParOldGen       total 76288K, used 45625K [0x00000000c0000000, 0x00000000c4a80000, 0x00000000eab00000)
+  object space 76288K, 59% used [0x00000000c0000000,0x00000000c2c8e4e0,0x00000000c4a80000)
+ Metaspace       used 15985K, capacity 16106K, committed 16384K, reserved 1064960K
+  class space    used 1744K, capacity 1791K, committed 1792K, reserved 1048576K
+}
+Event: 3.465 GC heap before
+{Heap before GC invocations=11 (full 1):
+ PSYoungGen      total 140800K, used 140785K [0x00000000eab00000, 0x00000000f8580000, 0x0000000100000000)
+  eden space 118272K, 100% used [0x00000000eab00000,0x00000000f1e80000,0x00000000f1e80000)
+  from space 22528K, 99% used [0x00000000f1e80000,0x00000000f347c440,0x00000000f3480000)
+  to   space 27136K, 0% used [0x00000000f6b00000,0x00000000f6b00000,0x00000000f8580000)
+ ParOldGen       total 76288K, used 45625K [0x00000000c0000000, 0x00000000c4a80000, 0x00000000eab00000)
+  object space 76288K, 59% used [0x00000000c0000000,0x00000000c2c8e4e0,0x00000000c4a80000)
+ Metaspace       used 17366K, capacity 17506K, committed 17920K, reserved 1064960K
+  class space    used 1926K, capacity 1955K, committed 2048K, reserved 1048576K
+Event: 3.501 GC heap after
+Heap after GC invocations=11 (full 1):
+ PSYoungGen      total 190464K, used 27105K [0x00000000eab00000, 0x00000000f9000000, 0x0000000100000000)
+  eden space 163328K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f4a80000)
+  from space 27136K, 99% used [0x00000000f6b00000,0x00000000f8578430,0x00000000f8580000)
+  to   space 33280K, 0% used [0x00000000f4a80000,0x00000000f4a80000,0x00000000f6b00000)
+ ParOldGen       total 76288K, used 50259K [0x00000000c0000000, 0x00000000c4a80000, 0x00000000eab00000)
+  object space 76288K, 65% used [0x00000000c0000000,0x00000000c3114cd0,0x00000000c4a80000)
+ Metaspace       used 17366K, capacity 17506K, committed 17920K, reserved 1064960K
+  class space    used 1926K, capacity 1955K, committed 2048K, reserved 1048576K
+}
+Event: 4.329 GC heap before
+{Heap before GC invocations=12 (full 1):
+ PSYoungGen      total 190464K, used 190433K [0x00000000eab00000, 0x00000000f9000000, 0x0000000100000000)
+  eden space 163328K, 100% used [0x00000000eab00000,0x00000000f4a80000,0x00000000f4a80000)
+  from space 27136K, 99% used [0x00000000f6b00000,0x00000000f8578430,0x00000000f8580000)
+  to   space 33280K, 0% used [0x00000000f4a80000,0x00000000f4a80000,0x00000000f6b00000)
+ ParOldGen       total 76288K, used 50259K [0x00000000c0000000, 0x00000000c4a80000, 0x00000000eab00000)
+  object space 76288K, 65% used [0x00000000c0000000,0x00000000c3114cd0,0x00000000c4a80000)
+ Metaspace       used 17809K, capacity 18014K, committed 18176K, reserved 1064960K
+  class space    used 1993K, capacity 2029K, committed 2048K, reserved 1048576K
+Event: 4.379 GC heap after
+Heap after GC invocations=12 (full 1):
+ PSYoungGen      total 196608K, used 26791K [0x00000000eab00000, 0x00000000fd080000, 0x0000000100000000)
+  eden space 163328K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f4a80000)
+  from space 33280K, 80% used [0x00000000f4a80000,0x00000000f64a9fc0,0x00000000f6b00000)
+  to   space 35840K, 0% used [0x00000000fad80000,0x00000000fad80000,0x00000000fd080000)
+ ParOldGen       total 77824K, used 77608K [0x00000000c0000000, 0x00000000c4c00000, 0x00000000eab00000)
+  object space 77824K, 99% used [0x00000000c0000000,0x00000000c4bca3f0,0x00000000c4c00000)
+ Metaspace       used 17809K, capacity 18014K, committed 18176K, reserved 1064960K
+  class space    used 1993K, capacity 2029K, committed 2048K, reserved 1048576K
+}
+Event: 4.379 GC heap before
+{Heap before GC invocations=13 (full 2):
+ PSYoungGen      total 196608K, used 26791K [0x00000000eab00000, 0x00000000fd080000, 0x0000000100000000)
+  eden space 163328K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f4a80000)
+  from space 33280K, 80% used [0x00000000f4a80000,0x00000000f64a9fc0,0x00000000f6b00000)
+  to   space 35840K, 0% used [0x00000000fad80000,0x00000000fad80000,0x00000000fd080000)
+ ParOldGen       total 77824K, used 77608K [0x00000000c0000000, 0x00000000c4c00000, 0x00000000eab00000)
+  object space 77824K, 99% used [0x00000000c0000000,0x00000000c4bca3f0,0x00000000c4c00000)
+ Metaspace       used 17809K, capacity 18014K, committed 18176K, reserved 1064960K
+  class space    used 1993K, capacity 2029K, committed 2048K, reserved 1048576K
+Event: 4.456 GC heap after
+Heap after GC invocations=13 (full 2):
+ PSYoungGen      total 196608K, used 0K [0x00000000eab00000, 0x00000000fd080000, 0x0000000100000000)
+  eden space 163328K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f4a80000)
+  from space 33280K, 0% used [0x00000000f4a80000,0x00000000f4a80000,0x00000000f6b00000)
+  to   space 35840K, 0% used [0x00000000fad80000,0x00000000fad80000,0x00000000fd080000)
+ ParOldGen       total 103936K, used 57277K [0x00000000c0000000, 0x00000000c6580000, 0x00000000eab00000)
+  object space 103936K, 55% used [0x00000000c0000000,0x00000000c37ef718,0x00000000c6580000)
+ Metaspace       used 17809K, capacity 18014K, committed 18176K, reserved 1064960K
+  class space    used 1993K, capacity 2029K, committed 2048K, reserved 1048576K
+}
+Event: 5.056 GC heap before
+{Heap before GC invocations=14 (full 2):
+ PSYoungGen      total 196608K, used 163328K [0x00000000eab00000, 0x00000000fd080000, 0x0000000100000000)
+  eden space 163328K, 100% used [0x00000000eab00000,0x00000000f4a80000,0x00000000f4a80000)
+  from space 33280K, 0% used [0x00000000f4a80000,0x00000000f4a80000,0x00000000f6b00000)
+  to   space 35840K, 0% used [0x00000000fad80000,0x00000000fad80000,0x00000000fd080000)
+ ParOldGen       total 103936K, used 57277K [0x00000000c0000000, 0x00000000c6580000, 0x00000000eab00000)
+  object space 103936K, 55% used [0x00000000c0000000,0x00000000c37ef718,0x00000000c6580000)
+ Metaspace       used 18481K, capacity 18672K, committed 19072K, reserved 1067008K
+  class space    used 2068K, capacity 2096K, committed 2176K, reserved 1048576K
+Event: 5.190 GC heap after
+Heap after GC invocations=14 (full 2):
+ PSYoungGen      total 264192K, used 22403K [0x00000000eab00000, 0x00000000fd800000, 0x0000000100000000)
+  eden space 228352K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f8a00000)
+  from space 35840K, 62% used [0x00000000fad80000,0x00000000fc360c48,0x00000000fd080000)
+  to   space 36352K, 0% used [0x00000000f8a00000,0x00000000f8a00000,0x00000000fad80000)
+ ParOldGen       total 103936K, used 57285K [0x00000000c0000000, 0x00000000c6580000, 0x00000000eab00000)
+  object space 103936K, 55% used [0x00000000c0000000,0x00000000c37f1718,0x00000000c6580000)
+ Metaspace       used 18481K, capacity 18672K, committed 19072K, reserved 1067008K
+  class space    used 2068K, capacity 2096K, committed 2176K, reserved 1048576K
+}
+Event: 5.876 GC heap before
+{Heap before GC invocations=15 (full 2):
+ PSYoungGen      total 264192K, used 250755K [0x00000000eab00000, 0x00000000fd800000, 0x0000000100000000)
+  eden space 228352K, 100% used [0x00000000eab00000,0x00000000f8a00000,0x00000000f8a00000)
+  from space 35840K, 62% used [0x00000000fad80000,0x00000000fc360c48,0x00000000fd080000)
+  to   space 36352K, 0% used [0x00000000f8a00000,0x00000000f8a00000,0x00000000fad80000)
+ ParOldGen       total 103936K, used 57285K [0x00000000c0000000, 0x00000000c6580000, 0x00000000eab00000)
+  object space 103936K, 55% used [0x00000000c0000000,0x00000000c37f1718,0x00000000c6580000)
+ Metaspace       used 18594K, capacity 18768K, committed 19072K, reserved 1067008K
+  class space    used 2077K, capacity 2128K, committed 2176K, reserved 1048576K
+
+Deoptimization events (10 events):
+Event: 3.232 Thread 0x00007fcaf4014800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007fcae551b7c8 method=java.net.URL.getURLStreamHandler(Ljava/lang/String;)Ljava/net/URLStreamHandler; @ 7
+Event: 4.323 Thread 0x00007fcaf4014800 Uncommon trap: reason=unloaded action=reinterpret pc=0x00007fcae57c97c8 method=org.springframework.asm.ClassReader.readConst(I[C)Ljava/lang/Object; @ 126
+Event: 4.720 Thread 0x00007fcaf4014800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fcae569c2c8 method=java.util.regex.Pattern$Curly.match0(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z @ 31
+Event: 4.720 Thread 0x00007fcaf4014800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fcae569c2c8 method=java.util.regex.Pattern$Curly.match0(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z @ 31
+Event: 4.720 Thread 0x00007fcaf4014800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fcae569c2c8 method=java.util.regex.Pattern$Curly.match0(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z @ 31
+Event: 4.720 Thread 0x00007fcaf4014800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fcae569c2c8 method=java.util.regex.Pattern$Curly.match0(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z @ 31
+Event: 5.415 Thread 0x00007fcaf4014800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00007fcae589f870 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 5.415 Thread 0x00007fcaf4014800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00007fcae589f870 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 5.415 Thread 0x00007fcaf4014800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00007fcae589f870 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 5.416 Thread 0x00007fcaf4014800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00007fcae589f870 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+
+Internal exceptions (10 events):
+Event: 5.400 Thread 0x00007fcaf4014800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ecb0b1f0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u25/1514/hotspot/src/share/vm/prims/jvm.cpp, line 1312]
+Event: 5.402 Thread 0x00007fcaf4014800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ecb2aac0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u25/1514/hotspot/src/share/vm/prims/jvm.cpp, line 1312]
+Event: 5.404 Thread 0x00007fcaf4014800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ecb435f0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u25/1514/hotspot/src/share/vm/prims/jvm.cpp, line 1312]
+Event: 5.405 Thread 0x00007fcaf4014800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ecb62888) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u25/1514/hotspot/src/share/vm/prims/jvm.cpp, line 1312]
+Event: 5.405 Thread 0x00007fcaf4014800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ecb7e1c0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u25/1514/hotspot/src/share/vm/prims/jvm.cpp, line 1312]
+Event: 5.406 Thread 0x00007fcaf4014800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ecb97508) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u25/1514/hotspot/src/share/vm/prims/jvm.cpp, line 1312]
+Event: 5.424 Thread 0x00007fcaf4014800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ecfe7cf0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u25/1514/hotspot/src/share/vm/prims/jvm.cpp, line 1312]
+Event: 5.425 Thread 0x00007fcaf4014800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ed003018) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u25/1514/hotspot/src/share/vm/prims/jvm.cpp, line 1312]
+Event: 5.428 Thread 0x00007fcaf4014800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ed046a58) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u25/1514/hotspot/src/share/vm/prims/jvm.cpp, line 1312]
+Event: 5.430 Thread 0x00007fcaf4014800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ed078d20) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u25/1514/hotspot/src/share/vm/prims/jvm.cpp, line 1312]
+
+Events (10 events):
+Event: 5.425 loading class net/proteusframework/core/hibernate/SessionLifeCycleListener done
+Event: 5.428 loading class com/i2rd/componentfactory/form/PrincipalDataTemplate
+Event: 5.428 loading class com/i2rd/componentfactory/form/PrincipalDataTemplate done
+Event: 5.430 loading class net/proteusframework/processes/form/cms/FormEntryBeanEditor
+Event: 5.430 loading class net/proteusframework/processes/form/cms/FormEntryBeanEditor done
+Event: 5.500 Thread 0x00007fcaf4014800 DEOPT PACKING pc=0x00007fcae53bd593 sp=0x00007fcafb500b90
+Event: 5.500 Thread 0x00007fcaf4014800 DEOPT UNPACKING pc=0x00007fcae5047373 sp=0x00007fcafb5008c0 mode 0
+Event: 5.509 Thread 0x00007fcaf4014800 DEOPT PACKING pc=0x00007fcae53bd593 sp=0x00007fcafb501070
+Event: 5.509 Thread 0x00007fcaf4014800 DEOPT UNPACKING pc=0x00007fcae5047373 sp=0x00007fcafb500da0 mode 0
+Event: 5.874 Executing VM operation: ParallelGCFailedAllocation
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:01 182505                             /usr/lib/jvm/java-8-oracle/bin/java
+00600000-00601000 rw-p 00000000 08:01 182505                             /usr/lib/jvm/java-8-oracle/bin/java
+009e8000-00a09000 rw-p 00000000 00:00 0                                  [heap]
+c0000000-c6580000 rw-p 00000000 00:00 0 
+c6580000-eab00000 ---p 00000000 00:00 0 
+eab00000-fd800000 rw-p 00000000 00:00 0 
+ffe80000-100000000 ---p 00000000 00:00 0 
+100000000-100220000 rw-p 00000000 00:00 0 
+100220000-140000000 ---p 00000000 00:00 0 
+7fca98000000-7fca98021000 rw-p 00000000 00:00 0 
+7fca98021000-7fca9c000000 ---p 00000000 00:00 0 
+7fcaa0000000-7fcaa003e000 rw-p 00000000 00:00 0 
+7fcaa003e000-7fcaa4000000 ---p 00000000 00:00 0 
+7fcaa4000000-7fcaa4021000 rw-p 00000000 00:00 0 
+7fcaa4021000-7fcaa8000000 ---p 00000000 00:00 0 
+7fcaa8000000-7fcaa8021000 rw-p 00000000 00:00 0 
+7fcaa8021000-7fcaac000000 ---p 00000000 00:00 0 
+7fcaac000000-7fcaac021000 rw-p 00000000 00:00 0 
+7fcaac021000-7fcab0000000 ---p 00000000 00:00 0 
+7fcab0000000-7fcab0475000 rw-p 00000000 00:00 0 
+7fcab0475000-7fcab4000000 ---p 00000000 00:00 0 
+7fcab6532000-7fcab65b3000 rw-p 00000000 00:00 0 
+7fcab65b3000-7fcab6733000 ---p 00000000 00:00 0 
+7fcab6733000-7fcab6933000 rw-p 00000000 00:00 0 
+7fcab6933000-7fcab6936000 ---p 00000000 00:00 0 
+7fcab6936000-7fcab6a34000 rw-p 00000000 00:00 0                          [stack:29846]
+7fcab6a34000-7fcab6a3e000 r--s 00116000 08:01 299595                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/localedata.jar
+7fcab6a3e000-7fcab6a5a000 r--s 00393000 08:01 299591                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/cldrdata.jar
+7fcab6a5a000-7fcab6c5a000 rw-p 00000000 00:00 0 
+7fcab6c5a000-7fcab6c5d000 ---p 00000000 00:00 0 
+7fcab6c5d000-7fcab6f5b000 rw-p 00000000 00:00 0                          [stack:29845]
+7fcab6f5b000-7fcab715b000 rw-p 00000000 00:00 0 
+7fcab715b000-7fcab7171000 r-xp 00000000 08:01 182838                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7fcab7171000-7fcab7371000 ---p 00016000 08:01 182838                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7fcab7371000-7fcab7372000 rw-p 00016000 08:01 182838                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7fcab7372000-7fcab7375000 ---p 00000000 00:00 0 
+7fcab7375000-7fcab7473000 rw-p 00000000 00:00 0                          [stack:29844]
+7fcab7473000-7fcab7474000 r-xp 00000000 08:01 940269                     /etc/idea/idea-IC-139.225.3/bin/libbreakgen64.so
+7fcab7474000-7fcab7673000 ---p 00001000 08:01 940269                     /etc/idea/idea-IC-139.225.3/bin/libbreakgen64.so
+7fcab7673000-7fcab7674000 r--p 00000000 08:01 940269                     /etc/idea/idea-IC-139.225.3/bin/libbreakgen64.so
+7fcab7674000-7fcab7675000 rw-p 00001000 08:01 940269                     /etc/idea/idea-IC-139.225.3/bin/libbreakgen64.so
+7fcab7675000-7fcab768d000 r--s 001a9000 08:01 1314066                    /opt/workspaces/final_project/runtime-aspects/aspectjweaver.jar
+7fcab768d000-7fcab768e000 r--s 00001000 08:01 1314067                    /opt/workspaces/final_project/runtime-aspects/spring-instrument.jar
+7fcab768e000-7fcab7690000 r--s 00016000 08:01 938857                     /etc/idea/idea-IC-139.225.3/lib/idea_rt.jar
+7fcab7690000-7fcab7699000 r--s 00076000 08:01 33795                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-management/0.10.2/ab5da8fded34dae1e17618d39b43571847494a7b/proteusframework-management-0.10.2.jar
+7fcab7699000-7fcab76c4000 r--s 00239000 08:01 33794                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-processes/0.10.2/2476ae699371055a797169c1b6fd69a40bbc2992/proteusframework-processes-0.10.2.jar
+7fcab76c4000-7fcab76c6000 r--s 00000000 08:01 33793                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-commerce/0.10.2/4d9d0f38989fd46b796c2ccac8430bd66ee6f3a3/proteusframework-commerce-0.10.2.jar
+7fcab76c6000-7fcab76d8000 r--s 0010e000 08:01 33792                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-communication/0.10.2/1e5c2b4bd4c403af3009610e819acfc1a6621886/proteusframework-communication-0.10.2.jar
+7fcab76d8000-7fcab7743000 r--s 007aa000 08:01 33791                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-cms/0.10.2/7cdbfad9e75987752f620cbb76e919941dfe73a/proteusframework-cms-0.10.2.jar
+7fcab7743000-7fcab776d000 r--s 00221000 08:01 33790                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-ui/0.10.2/a0e5a3e94e416202b827d2ad08fbd4c42b3e1fea/proteusframework-ui-0.10.2.jar
+7fcab776d000-7fcab7776000 r--s 00075000 08:01 33789                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-data/0.10.2/1c69b4a6e38d67ace76daa0ff3ce3730aafc713e/proteusframework-data-0.10.2.jar
+7fcab7776000-7fcab777e000 r--s 00058000 08:01 33788                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-internet/0.10.2/2adcc4c840e0c5ea02b7c71a169cad350299f559/proteusframework-internet-0.10.2.jar
+7fcab777e000-7fcab7784000 r--s 0003b000 08:01 33787                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-users/0.10.2/cc40125da2ae37985260dbe76dcb7c4574fd6aa5/proteusframework-users-0.10.2.jar
+7fcab7784000-7fcab779a000 r--s 0015d000 08:01 33786                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-core/0.10.2/c81b0d38f4e85eecb9036d9134ca53ab2a8ffc76/proteusframework-core-0.10.2.jar
+7fcab779a000-7fcab779d000 r--s 00022000 08:01 33785                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework/0.10.2/b227e652f767743c96775c2e66bcd7d4833e6d3/proteusframework-0.10.2.jar
+7fcab779d000-7fcab77a1000 r--s 00030000 08:01 9846                       /home/aholt/.gradle/caches/modules-2/files-2.1/net.venturetech/products-labs/0.10.1/4f1b22fd7e5435e5bb7712b47f389f0d9f395099/products-labs-0.10.1.jar
+7fcab77a1000-7fcab77a4000 r--s 00018000 08:01 32153                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.ajoberstar/gradle-git/0.6.3/fb15c98cb2ecc6925677ca288da2d475d2e14ddf/gradle-git-0.6.3.jar
+7fcab77a4000-7fcab77a6000 r--s 00000000 08:01 32165                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch.agentproxy.jsch/0.0.6/aee40b481ad104a578584335b4859e49d4be4f7a/jsch.agentproxy.jsch-0.0.6.jar
+7fcab77a6000-7fcab77a8000 r--s 00000000 08:01 32163                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch.agentproxy.sshagent/0.0.6/c552a54fece150f69350fa11b9c28d0e455bcf4b/jsch.agentproxy.sshagent-0.0.6.jar
+7fcab77a8000-7fcab77aa000 r--s 00004000 08:01 32162                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.jgit/org.eclipse.jgit.ui/2.2.0.201212191850-r/19f6a7bcc19505a8bdd1436bd383755303c6736a/org.eclipse.jgit.ui-2.2.0.201212191850-r.jar
+7fcab77aa000-7fcab77c4000 r--s 00175000 08:01 32164                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.jgit/org.eclipse.jgit/2.2.0.201212191850-r/97d0761b9dd618d1f9f6c16c35c3ddf045ba536c/org.eclipse.jgit-2.2.0.201212191850-r.jar
+7fcab77c4000-7fcab77c7000 r--s 00035000 08:01 32179                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch/0.1.49/5c46cae7d01e845379beac44512e25eb11017159/jsch-0.1.49.jar
+7fcab77c7000-7fcab77c8000 r--s 00001000 08:01 32161                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch.agentproxy.usocket-jna/0.0.6/e5e027a2d77296a89088820d5b3ffd2705f513f1/jsch.agentproxy.usocket-jna-0.0.6.jar
+7fcab77c8000-7fcab77c9000 r--s 00001000 08:01 32160                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch.agentproxy.pageant/0.0.6/a4b88191bed87d3210d9666071b15b98e0447484/jsch.agentproxy.pageant-0.0.6.jar
+7fcab77c9000-7fcab77d4000 r--s 000d5000 08:01 32171                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/platform/3.4.0/e3f70017be8100d3d6923f50b3d2ee17714e9c13/platform-3.4.0.jar
+7fcab77d4000-7fcab77d8000 r--s 000f3000 08:01 32170                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/3.4.0/803ff252fedbd395baffd43b37341dc4a150a554/jna-3.4.0.jar
+7fcab77d8000-7fcab77da000 r--s 00001000 08:01 32169                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch.agentproxy.core/0.0.6/fb27d5a19479c7617c74aaca4f1d38063ac7a25e/jsch.agentproxy.core-0.0.6.jar
+7fcab77da000-7fcab77e1000 r--s 00089000 08:01 32816                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.postgresql/postgresql/9.3-1100-jdbc41/968077372764b8ac5c22a4c0f9bd6bc62878b252/postgresql-9.3-1100-jdbc41.jar
+7fcab77e1000-7fcab77f0000 r--s 001aa000 08:01 32814                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.i2rd.drools/drools/2.1.0/6358e92cca801bceda11483f3e143bf1d1210ad/drools-2.1.0.jar
+7fcab77f0000-7fcab77f7000 r--s 00068000 08:01 32690                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.i2rd/org.apache.batik.pdf/1.6.0/d0fb5faa313511b6261ec2f526bab0ce0a7bebc4/org.apache.batik.pdf-1.6.0.jar
+7fcab77f7000-7fcab77fd000 r--s 0003c000 08:01 32687                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.i2rd/milton-api/1.5.0/71b5fbd3eb90419bf5f5fb7e67c325bce1f0a50b/milton-api-1.5.0.jar
+7fcab77fd000-7fcab7905000 r--s 00a4d000 08:01 32683                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk/1.6.12/49979bc04cb1cb23d7ea0d299f92c71b160a8c56/aws-java-sdk-1.6.12.jar
+7fcab7905000-7fcab7914000 r--s 00081000 08:01 32813                      /home/aholt/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.6/5015880733b0bc0ce813a3ed5601064c1d413671/joda-time-2.6.jar
+7fcab7914000-7fcab7925000 r--s 000d1000 08:01 32812                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.1.1/38d2b3c0c89af5b937fd98c3e558bf6b58c14aa2/jackson-databind-2.1.1.jar
+7fcab7925000-7fcab7927000 r--s 00007000 08:01 32811                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.1.1/b01cc83e745fc4425a3968fafbf8e5b8254a6dd/jackson-annotations-2.1.1.jar
+7fcab7927000-7fcab792b000 r--s 0002f000 08:01 32810                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.1.1/82ad1c5f92f6dcc6291f5c46ebacb975eaa844de/jackson-core-2.1.1.jar
+7fcab792b000-7fcab79a8000 r--s 0053d000 08:01 32809                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.i2rd/fredck-fckeditor/4.4.1/32d325489cf603ae14043f36a9859038506e42fa/fredck-fckeditor-4.4.1.jar
+7fcab79a8000-7fcab79ae000 r--s 00038000 08:01 32808                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.rometools/rome-modules/1.0/d4d035650bfd7fe3a0b84e29b2edcec7399f1a21/rome-modules-1.0.jar
+7fcab79ae000-7fcab79b2000 r--s 00053000 08:01 32806                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.sourceforge.cssparser/cssparser/0.9.14/25f3d437b3cd4d4e6fab904d18967c64e4ab671d/cssparser-0.9.14.jar
+7fcab79b2000-7fcab79b4000 r--s 0001c000 08:01 32805                      /home/aholt/.gradle/caches/modules-2/files-2.1/eu.medsea.mimeutil/mime-util/2.1.1/9fbbb6ddd330872f1b3c8ee7b09da073843a5f05/mime-util-2.1.1.jar
+7fcab79b4000-7fcab79b8000 r--s 00032000 08:01 32804                      /home/aholt/.gradle/caches/modules-2/files-2.1/rome/rome/1.0/22b33347f315833e9348cec2751af1a5d5656e4/rome-1.0.jar
+7fcab79b8000-7fcab79bb000 r--s 00023000 08:01 32803                      /home/aholt/.gradle/caches/modules-2/files-2.1/jdom/jdom/1.0/a2ac1cd690ab4c80defe7f9bce14d35934c35cec/jdom-1.0.jar
+7fcab79bb000-7fcab79bc000 r--s 00001000 08:01 32157                      /home/aholt/.gradle/caches/modules-2/files-2.1/javax.annotation/jsr250-api/1.0/5025422767732a1ab45d93abfea846513d742dcf/jsr250-api-1.0.jar
+7fcab79bc000-7fcab79bd000 r--s 00003000 08:01 32802                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.w3c.css/sac/1.3/cdb2dcb4e22b83d6b32b93095f644c3462739e82/sac-1.3.jar
+7fcab79bd000-7fcab79c5000 r--s 0004b000 08:01 32801                      /home/aholt/.gradle/caches/modules-2/files-2.1/commons-math/commons-math/1.2/3955b41fe9f3c0469bd873331940674812d09bd2/commons-math-1.2.jar
+7fcab79c5000-7fcab79cb000 r--s 00047000 08:01 32800                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.i2rd.parboiled/parboiled/0.9.7.2/b16e23d6d558f180becd387e96656a8e030285c3/parboiled-0.9.7.2.jar
+7fcab79cb000-7fcab7a08000 r--s 00256000 08:01 32799                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.i2rd.org.apache.xmlbeans/xmlbeans/2.3.0/3d63dcab0c9cffe2b6dc1c99f4d52392b9d75e13/xmlbeans-2.3.0.jar
+7fcab7a08000-7fcab7a0a000 r--s 0001a000 08:01 182913                     /usr/lib/jvm/java-8-oracle/jre/lib/jce.jar
+7fcab7a0a000-7fcab7a0e000 r--s 00093000 08:01 182935                     /usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar
+7fcab7a0e000-7fcab7b31000 r--s 01207000 08:01 32798                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.birt.runtime/4.3.1/dfa1f259761c3fb19984ff503fcea0e90d55e748/org.eclipse.birt.runtime-4.3.1.jar
+7fcab7b31000-7fcab7b33000 r--s 0000d000 08:01 32797                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.core.filesystem/1.4.0.v20130514-1240/e26398a301d91db6516debe38664239481d4b309/org.eclipse.core.filesystem-1.4.0.v20130514-1240.jar
+7fcab7b33000-7fcab7b3d000 r--s 00074000 08:01 32796                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.batik.bridge/1.6.0/e2db6eb9029356884f123a60e9b72a51919e9a6f/org.apache.batik.bridge-1.6.0.jar
+7fcab7b3d000-7fcab7b4f000 r--s 001a2000 08:01 32795                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/com.lowagie.text/2.1.7/18d4c7c2014447eacfd00c65c717b3cfc422407b/com.lowagie.text-2.1.7.jar
+7fcab7b4f000-7fcab7b51000 r--s 0000c000 08:01 32794                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.commons.codec/1.3.0/72c73f3729b4ca49dac8691fb5adb194e8595799/org.apache.commons.codec-1.3.0.jar
+7fcab7b51000-7fcab7b53000 r--s 00005000 08:01 32793                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.connectivity.console.profile/1.0.10.v201109250955/2c338e35fc23603cea9ebaf5177a0c042f38eea1/org.eclipse.datatools.connectivity.console.profile-1.0.10.v201109250955.jar
+7fcab7b53000-7fcab7b56000 r--s 00011000 08:01 32792                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.connectivity.apache.derby/1.0.103.v201212070447/2257789d5761585d498d13bb2269c180c970f28d/org.eclipse.datatools.connectivity.apache.derby-1.0.103.v201212070447.jar
+7fcab7b56000-7fcab7b58000 r--s 00010000 08:01 32791                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.milyn/flute/1.3/b7d59dc172005598b55699b1a75605b13c14f1fd/flute-1.3.jar
+7fcab7b58000-7fcab7b5b000 r--s 0001a000 08:01 32790                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.oda.xml/1.2.5.v201305031101/b5be50518c251d4c022959aeb6f871d6fea33fcc/org.eclipse.datatools.enablement.oda.xml-1.2.5.v201305031101.jar
+7fcab7b5b000-7fcab7b5c000 r--s 00002000 08:01 32789                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.postgresql.dbdefinition/1.0.2.v201110070445/8021bc614192f060a880cc407aba8adcfea6fb7f/org.eclipse.datatools.enablement.postgresql.dbdefinition-1.0.2.v201110070445.jar
+7fcab7b5c000-7fcab7b5f000 r--s 00025000 08:01 32788                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/Tidy/1/63b1e38f4ca630dbac3d2072cda2a9336914d10c/Tidy-1.jar
+7fcab7b5f000-7fcab7b63000 r--s 00011000 08:01 32787                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.osgi.services/3.3.100.v20130513-1956/1d73531fac5372870373a06193985611b1239f0c/org.eclipse.osgi.services-3.3.100.v20130513-1956.jar
+7fcab7b63000-7fcab7b67000 r--s 00020000 08:01 32786                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/javax.wsdl/1.5.1/29ec6b1964b05d6ff9728226d2a1e61fab3ac95c/javax.wsdl-1.5.1.jar
+7fcab7b67000-7fcab7b6f000 r--s 0005f000 08:01 32785                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.orbit.mongodb/2.10.1.v20130422-1135/98f0232dc80679a3f5c1effe15344dc7ceac98dc/org.eclipse.orbit.mongodb-2.10.1.v20130422-1135.jar
+7fcab7b6f000-7fcab7b71000 r--s 00017000 08:01 32784                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.update.configurator/3.3.200.v20130326-1319/4375455f2f0bd4f014e79758bbb3d4b7340e2943/org.eclipse.update.configurator-3.3.200.v20130326-1319.jar
+7fcab7b71000-7fcab7b72000 r--s 00004000 08:01 32783                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.mysql.dbdefinition/1.0.4.v201109022331/7b1abc387591d4a9427bb13344243a220a5d751b/org.eclipse.datatools.enablement.mysql.dbdefinition-1.0.4.v201109022331.jar
+7fcab7b72000-7fcab7b75000 r--s 00025000 08:01 32782                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.modelbase.dbdefinition/1.0.2.v201107221519/725b5a9cbd280b8e6c9a6fd32cbe44bf1aae10a3/org.eclipse.datatools.modelbase.dbdefinition-1.0.2.v201107221519.jar
+7fcab7b75000-7fcab7b7d000 r--s 0008e000 08:01 32781                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.modelbase.sql.query/1.1.4.v201212120619/663bfc41efd6030a37f7e6e7baf3b259606c1bcc/org.eclipse.datatools.modelbase.sql.query-1.1.4.v201212120619.jar
+7fcab7b7d000-7fcab7b95000 r--s 00127000 08:01 32780                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.xerces/2.9.0/615a1b724b88b81e8a040ec148fd25368f7b48e5/org.apache.xerces-2.9.0.jar
+7fcab7b95000-7fcab7b99000 r--s 00044000 08:01 32779                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.xml.serializer/2.7.1/a8508e22414c8e12cdfdc42b25a7c7efa4004556/org.apache.xml.serializer-2.7.1.jar
+7fcab7b99000-7fcab7b9a000 r--s 00008000 08:01 32778                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.batik.xml/1.6.0/8b3fbec88190a39eae4de5088a1199f23526258e/org.apache.batik.xml-1.6.0.jar
+7fcab7b9a000-7fcab7b9b000 r--s 00007000 08:01 32777                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.oracle.dbdefinition/1.0.103.v201206010214/af90f9d09101fb165a260896477c01385b6c8fd1/org.eclipse.datatools.enablement.oracle.dbdefinition-1.0.103.v201206010214.jar
+7fcab7b9b000-7fcab7b9e000 r--s 00016000 08:01 32776                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.batik.util/1.6.0/74aafd6361820f7e67474e78b16fd4365d1a58a/org.apache.batik.util-1.6.0.jar
+7fcab7b9e000-7fcab7ba1000 r--s 00013000 08:01 32775                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.core.expressions/3.4.500.v20130515-1343/97cc20cce87af191fc620562ab74b1cde95947fd/org.eclipse.core.expressions-3.4.500.v20130515-1343.jar
+7fcab7ba1000-7fcab7ba3000 r--s 00002000 08:01 32774                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.oracle/1.0.0.v201107221506/5628f462cfa241fff7b11f1df4c21802f174dd08/org.eclipse.datatools.enablement.oracle-1.0.0.v201107221506.jar
+7fcab7ba3000-7fcab7ba6000 r--s 0001c000 08:01 32773                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.equinox.preferences/3.5.100.v20130422-1538/bc48b6b0c00898d5eb2cbd6024fc0235ae04f3d2/org.eclipse.equinox.preferences-3.5.100.v20130422-1538.jar
+7fcab7ba6000-7fcab7ba7000 r--s 00003000 08:01 32772                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.connectivity.apache.derby.dbdefinition/1.0.2.v201107221459/be66d744ac0e8f011055c37eb6c0b0b8de2d0978/org.eclipse.datatools.connectivity.apache.derby.dbdefinition-1.0.2.v201107221459.jar
+7fcab7ba7000-7fcab7ba8000 r--s 00005000 08:01 32771                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.ibm.db2.luw.dbdefinition/1.0.4.v201107221502/7ba2ad3443244862426b20f2da73bb78c7223287/org.eclipse.datatools.enablement.ibm.db2.luw.dbdefinition-1.0.4.v201107221502.jar
+7fcab7ba8000-7fcab7bab000 r--s 00011000 08:01 32770                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.batik.transcoder/1.6.0/fc5d9326a3195f15781d2fcea862ec1767e30ebf/org.apache.batik.transcoder-1.6.0.jar
+7fcab7bab000-7fcab7bad000 r--s 00006000 08:01 32768                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.postgresql/1.1.1.v201205252207/ddd733b059a41aa86aceed5344d1b4799802f5c0/org.eclipse.datatools.enablement.postgresql-1.1.1.v201205252207.jar
+7fcab7bad000-7fcab7bb6000 r--s 000d3000 08:01 32767                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.mozilla.javascript/1.7.2/b520e18bd357a47deb2e902ce49533564236219b/org.mozilla.javascript-1.7.2.jar
+7fcab7bb6000-7fcab7bbe000 r--s 00059000 08:01 32766                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.batik.ext.awt/1.6.0/4df20bee143553a89b26bc06411eb4dcf44ec18e/org.apache.batik.ext.awt-1.6.0.jar
+7fcab7bbe000-7fcab7bca000 r--s 00066000 08:01 32765                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.batik.dom.svg/1.6.0/ce507ddef394d6c6771bc8692c7db6afb1da4fa0/org.apache.batik.dom.svg-1.6.0.jar
+7fcab7bca000-7fcab7bcf000 r--s 00011000 08:01 32764                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.w3c.dom.svg/1.1.0/9c6413ed43b4e9ba56982a554e03bd012cc44ed9/org.w3c.dom.svg-1.1.0.jar
+7fcab7bcf000-7fcab7bd8000 r--s 00080000 08:01 32763                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.modelbase.sql/1.0.6.v201208230744/731de727a1154c562038b045fa247716f68e93fe/org.eclipse.datatools.modelbase.sql-1.0.6.v201208230744.jar
+7fcab7bd8000-7fcab7bd9000 r--s 00007000 08:01 32762                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.ibm.informix.dbdefinition/1.0.4.v201107221502/1587982c1ed42ca42e1fe02f1a3baf1faa4bcbb2/org.eclipse.datatools.enablement.ibm.informix.dbdefinition-1.0.4.v201107221502.jar
+7fcab7bd9000-7fcab7bdb000 r--s 00016000 08:01 32761                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.xml.resolver/1.2.0/7c9c22053b04772e81dc62d665b202eeae82ae47/org.apache.xml.resolver-1.2.0.jar
+7fcab7bdb000-7fcab7bdc000 r--s 00005000 08:01 32760                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.msft.sqlserver.dbdefinition/1.0.1.v201201240505/d18a0cca80deb6331f1caffea5abc8fa34e2060e/org.eclipse.datatools.enablement.msft.sqlserver.dbdefinition-1.0.1.v201201240505.jar
+7fcab7bdc000-7fcab7bde000 r--s 00003000 08:01 32759                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.hsqldb/1.0.0.v201107221502/5f987f4588c989290c038bd70460c36caa972c0b/org.eclipse.datatools.enablement.hsqldb-1.0.0.v201107221502.jar
+7fcab7bde000-7fcab7be0000 r--s 00002000 08:01 32758                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.connectivity.db.generic/1.0.1.v201107221459/4dd3c5554bea2302448e4201167e36e2bf11d383/org.eclipse.datatools.connectivity.db.generic-1.0.1.v201107221459.jar
+7fcab7be0000-7fcab7be2000 r--s 00010000 08:01 32757                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.mysql/1.0.4.v201212120617/b8862d790cf4715ce8b1a5c54d9fa9ee2557154f/org.eclipse.datatools.enablement.mysql-1.0.4.v201212120617.jar
+7fcab7be2000-7fcab7bee000 r--s 000d9000 08:01 32756                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi-ooxml/3.9/bbe83c739d22eecfacd06d7e0b99ba13277040ed/poi-ooxml-3.9.jar
+7fcab7bee000-7fcab7c82000 r--s 00401000 08:01 32755                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi-ooxml-schemas/3.9/4c514498f0e82cccfdd3208b9caff2f45158db4a/poi-ooxml-schemas-3.9.jar
+7fcab7c82000-7fcab7c88000 r--s 0004d000 08:01 32754                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.connectivity.oda.design/3.3.6.v201212070447/bce1829458bb7c58200cb72c045d48e82702d0a8/org.eclipse.datatools.connectivity.oda.design-3.3.6.v201212070447.jar
+7fcab7c88000-7fcab7c8a000 r--s 0001b000 08:01 32753                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.connectivity.oda.consumer/3.2.6.v201305170644/45205c69d334dec54f76f8e2a5cacab8accde588/org.eclipse.datatools.connectivity.oda.consumer-3.2.6.v201305170644.jar
+7fcab7c8a000-7fcab7c8b000 r--s 00003000 08:01 32752                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.ibm.db2.luw/1.0.2.v201107221502/3e9920ed389a8eba9ba8ce46d0c0e8ac6da5b41d/org.eclipse.datatools.enablement.ibm.db2.luw-1.0.2.v201107221502.jar
+7fcab7c8b000-7fcab7c92000 r--s 0003a000 08:01 32751                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.batik.css/1.6.0/1e54558f0ad4b78f907f3461c14c7a7a91aecab2/org.apache.batik.css-1.6.0.jar
+7fcab7c92000-7fcab7c96000 r--s 00017000 08:01 32750                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.batik.dom/1.6.0/e9fe8d31ea04c6cd566e35f61524e561821bbe57/org.apache.batik.dom-1.6.0.jar
+7fcab7c96000-7fcab7c97000 r--s 00002000 08:01 32749                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.connectivity.dbdefinition.genericJDBC/1.0.1.v201107221459/1ee4dc13d331d13f2be2f1cb1b62b789c25db9cc/org.eclipse.datatools.connectivity.dbdefinition.genericJDBC-1.0.1.v201107221459.jar
+7fcab7c97000-7fcab7c99000 r--s 00006000 08:01 32748                      /home/aholt/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.0/6dac9733315224fc562f6268df58e92d65fd0137/commons-cli-1.0.jar
+7fcab7c99000-7fcab7c9c000 r--s 00013000 08:01 32747                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.equinox.app/1.3.100.v20130327-1442/cfe0deab8c3c4f4caea3767bc8bbaa4789b8f782/org.eclipse.equinox.app-1.3.100.v20130327-1442.jar
+7fcab7c9c000-7fcab7ca1000 r--s 00029000 08:01 32746                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.batik.svggen/1.6.0/5cb65af57bdfd093c47b3cf7bc8bb57e10f5451/org.apache.batik.svggen-1.6.0.jar
+7fcab7ca1000-7fcab7cc7000 r--s 00240000 08:01 32745                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/derby/10.5.1000001/566a30778917a22fd426f73d2e4ead31010c82a8/derby-10.5.1000001.jar
+7fcab7cc7000-7fcab7cc9000 r--s 00002000 08:01 32744                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.ibm.informix/1.0.1.v201107221502/8c1d7354580604905a00c7d9acce3fbc5696b537/org.eclipse.datatools.enablement.ibm.informix-1.0.1.v201107221502.jar
+7fcab7cc9000-7fcab7ccb000 r--s 00008000 08:01 32743                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/javax.xml.stream/1.0.1.v201004272200/3a4f0067058e2aa9af1c6e463bc8a147a99681c0/javax.xml.stream-1.0.1.v201004272200.jar
+7fcab7ccb000-7fcab7cd2000 r--s 00022000 08:01 32742                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.batik.util.gui/1.6.0/6afa9107935bdeede0487c770bb0537b1a341c81/org.apache.batik.util.gui-1.6.0.jar
+7fcab7cd2000-7fcab7cd5000 r--s 00018000 08:01 32741                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.equinox.common/3.6.200.v20130402-1505/550778d95ea4d5f2fee765e85eb799cec21067e0/org.eclipse.equinox.common-3.6.200.v20130402-1505.jar
+7fcab7cd5000-7fcab7cd7000 r--s 0000c000 08:01 32740                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.apache.batik.parser/1.6.0/5e6dd459704dd6bd168f1b030cb739872e994339/org.apache.batik.parser-1.6.0.jar
+7fcab7cd7000-7fcab7cd9000 r--s 00004000 08:01 32739                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.modelbase.derby/1.0.0.v201107221519/93018a0f0e585dd4ceb70e849570d6143034273a/org.eclipse.datatools.modelbase.derby-1.0.0.v201107221519.jar
+7fcab7cd9000-7fcab7cdb000 r--s 00015000 08:01 32738                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.core.contenttype/3.4.200.v20130326-1255/9a032a98b4b139fa91522b10fdc61ffa9864414/org.eclipse.core.contenttype-3.4.200.v20130326-1255.jar
+7fcab7cdb000-7fcab7cdc000 r--s 00001000 08:01 32737                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.hsqldb.dbdefinition/1.0.0.v201107221502/aa3214296e97b4dfd14345acea23f2c92e992c36/org.eclipse.datatools.enablement.hsqldb.dbdefinition-1.0.0.v201107221502.jar
+7fcab7cdc000-7fcab7cdd000 r--s 00003000 08:01 32736                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime.3_7_1/org.w3c.dom.smil/1.0.0/674bdda9162b48419741da833e445e190f33a58a/org.w3c.dom.smil-1.0.0.jar
+7fcab7cdd000-7fcab7ce4000 r--s 0004b000 08:01 32733                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.connectivity.sqm.core/1.2.7.v201308160952/51c24b79134728bd66014ce5580ce659b9f227ec/org.eclipse.datatools.connectivity.sqm.core-1.2.7.v201308160952.jar
+7fcab7ce4000-7fcab7ce9000 r--s 00036000 08:01 32732                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.connectivity.oda/3.4.1.v201308160907/785f5e1b16ffe224500da7554870cb4aa607f37f/org.eclipse.datatools.connectivity.oda-3.4.1.v201308160907.jar
+7fcab7ce9000-7fcab7cfd000 r--s 00140000 08:01 32731                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.osgi/3.9.1.v20130814-1242/cd3f11bd163003f0883aa53f029810afc41e9035/org.eclipse.osgi-3.9.1.v20130814-1242.jar
+7fcab7cfd000-7fcab7cfe000 ---p 00000000 00:00 0 
+7fcab7cfe000-7fcab7dfe000 rw-p 00000000 00:00 0                          [stack:29843]
+7fcab7dfe000-7fcab7e01000 ---p 00000000 00:00 0 
+7fcab7e01000-7fcab7eff000 rw-p 00000000 00:00 0                          [stack:29842]
+7fcab7eff000-7fcab7f02000 ---p 00000000 00:00 0 
+7fcab7f02000-7fcab8000000 rw-p 00000000 00:00 0                          [stack:29841]
+7fcab8000000-7fcab91ca000 rw-p 00000000 00:00 0 
+7fcab91ca000-7fcabc000000 ---p 00000000 00:00 0 
+7fcabc000000-7fcabd427000 rw-p 00000000 00:00 0 
+7fcabd427000-7fcac0000000 ---p 00000000 00:00 0 
+7fcac0000000-7fcac0021000 rw-p 00000000 00:00 0 
+7fcac0021000-7fcac4000000 ---p 00000000 00:00 0 
+7fcac4000000-7fcac4021000 rw-p 00000000 00:00 0 
+7fcac4021000-7fcac8000000 ---p 00000000 00:00 0 
+7fcac8000000-7fcac836e000 rw-p 00000000 00:00 0 
+7fcac836e000-7fcacc000000 ---p 00000000 00:00 0 
+7fcacc000000-7fcacc021000 rw-p 00000000 00:00 0 
+7fcacc021000-7fcad0000000 ---p 00000000 00:00 0 
+7fcad0000000-7fcad0021000 rw-p 00000000 00:00 0 
+7fcad0021000-7fcad4000000 ---p 00000000 00:00 0 
+7fcad4000000-7fcad4021000 rw-p 00000000 00:00 0 
+7fcad4021000-7fcad8000000 ---p 00000000 00:00 0 
+7fcad8000000-7fcad8021000 rw-p 00000000 00:00 0 
+7fcad8021000-7fcadc000000 ---p 00000000 00:00 0 
+7fcadc000000-7fcadc002000 r--s 00010000 08:01 32735                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.core.runtime/3.9.0.v20130326-1255/47eedfa6e872020604db4b2e1949aa6ca273ac6a/org.eclipse.core.runtime-3.9.0.v20130326-1255.jar
+7fcadc002000-7fcadc004000 r--s 00008000 08:01 32734                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.connectivity.oda.profile/3.2.9.v201307270622/f41f63fdd1f2bd800a8707e214a98a23e0d87022/org.eclipse.datatools.connectivity.oda.profile-3.2.9.v201307270622.jar
+7fcadc004000-7fcadc008000 r--s 00034000 08:01 32730                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.emf.ecore.xmi/2.9.1.v20130827-0309/7efc48c6bab366f5851b424e596ad05842e41d4c/org.eclipse.emf.ecore.xmi-2.9.1.v20130827-0309.jar
+7fcadc008000-7fcadc00a000 r--s 00011000 08:01 32729                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.msft.sqlserver/1.0.2.v201212120617/bff9658c0858cea81b373f1488274a1d9d200cc6/org.eclipse.datatools.enablement.msft.sqlserver-1.0.2.v201212120617.jar
+7fcadc00a000-7fcadc00b000 r--s 00002000 08:01 32728                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.emf/2.6.0.v20130902-0605/bf164e595e1a29ac17e1490cfe9f9ed4b6157c71/org.eclipse.emf-2.6.0.v20130902-0605.jar
+7fcadc00b000-7fcadc01d000 r--s 0010f000 08:01 32727                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.emf.ecore/2.9.1.v20130827-0309/690fc86a8e039e92434a9d9f3872a20dd16fffcc/org.eclipse.emf.ecore-2.9.1.v20130827-0309.jar
+7fcadc01d000-7fcadc024000 r--s 0004f000 08:01 32726                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.emf.common/2.9.1.v20130827-0309/2c268cc441822b35f3713af9b8f9de9446648bb5/org.eclipse.emf.common-2.9.1.v20130827-0309.jar
+7fcadc024000-7fcadc027000 r--s 0002a000 08:01 32725                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.equinox.registry/3.5.301.v20130717-1549/e6a70177c0acdcd6ac1545082ec5671816bcf8c9/org.eclipse.equinox.registry-3.5.301.v20130717-1549.jar
+7fcadc027000-7fcadc029000 r--s 0000e000 08:01 32724                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.connectivity.oda.flatfile/3.1.6.v201308131104/6528656dded10c15f72471765ae9761c8aeb120e/org.eclipse.datatools.connectivity.oda.flatfile-3.1.6.v201308131104.jar
+7fcadc029000-7fcadc02b000 r--s 00013000 08:01 32723                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.emf.ecore.change/2.9.0.v20130827-0309/d0de68f13da035e4e5172c764b204d6deebf0e2d/org.eclipse.emf.ecore.change-2.9.0.v20130827-0309.jar
+7fcadc02b000-7fcadc036000 r--s 000c0000 08:01 32722                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.core.resources/3.8.101.v20130717-0806/5fc550dca872450b3929ff0d5903cc1b1950d03d/org.eclipse.core.resources-3.8.101.v20130717-0806.jar
+7fcadc036000-7fcadc038000 r--s 0000e000 08:01 32721                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.enablement.oda.ws/1.2.6.v201307051812/209b31b5181dcd592183332166664087670345c0/org.eclipse.datatools.enablement.oda.ws-1.2.6.v201307051812.jar
+7fcadc038000-7fcadc03e000 r--s 0003b000 08:01 32720                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.birt.runtime/org.eclipse.datatools.connectivity/1.2.9.v201307261105/a833897b7f0cfb0bd61d3943929196218419043f/org.eclipse.datatools.connectivity-1.2.9.v201307261105.jar
+7fcadc03e000-7fcadc041000 r--s 0001b000 08:01 32718                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.i2rd.jscalendar/jscalendar/1.0.1/f591b49f3d6ebd3fe26ee9d9cd897e0e3115d07f/jscalendar-1.0.1.jar
+7fcadc041000-7fcadc044000 r--s 0000a000 08:01 32716                      /home/aholt/.gradle/caches/modules-2/files-2.1/javax.servlet.jsp/jsp-api/2.2/5bf0c26ef77df58c7c28be2d9d52246f2b437a54/jsp-api-2.2.jar
+7fcadc044000-7fcadc046000 r--s 00018000 08:01 32715                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.i2rd.commons/commons-el/2.0.0/ec915cde8f9a704d9a38ac8858947676fc938b37/commons-el-2.0.0.jar
+7fcadc046000-7fcadc061000 r--s 001af000 08:01 32713                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.aggregate/jetty-all/8.1.14.v20131031/9910846eacd4c889797a569e7cfc98ae82382ffc/jetty-all-8.1.14.v20131031.jar
+7fcadc061000-7fcadc063000 r--s 0000f000 08:01 32712                      /home/aholt/.gradle/caches/modules-2/files-2.1/commons-fileupload/commons-fileupload/1.3.1/c621b54583719ac0310404463d6d99db27e1052c/commons-fileupload-1.3.1.jar
+7fcadc063000-7fcadc065000 r--s 00039000 08:01 32710                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.i2rd.org.solinger/cracklib/0.5.3/ba76e12aa7e8f9e511a826fb7535c8d529126a4/cracklib-0.5.3.jar
+7fcadc065000-7fcadc066000 r--s 00004000 08:01 32709                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.mindrot/jbcrypt/0.3m/fe2d9c5f23767d681a7e38fc8986b812400ec583/jbcrypt-0.3m.jar
+7fcadc066000-7fcadc06c000 r--s 0002a000 08:01 32708                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.octo.captcha/jcaptcha/1.0/fc28c75b6e4ab3c50fadc7503defc50886c4dfa/jcaptcha-1.0.jar
+7fcadc06c000-7fcadc070000 r--s 00037000 08:01 32707                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.jhlabs/imaging/01012005/a56c8146f654e4473c6ff1b12b22dd51bcef81ca/imaging-01012005.jar
+7fcadc070000-7fcadc071000 r--s 00001000 08:01 32706                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.octo.captcha/jcaptcha-api/1.0/ff18fc63ff3871f11f5d59d929630c34ea793069/jcaptcha-api-1.0.jar
+7fcadc071000-7fcadc078000 r--s 00036000 08:01 32704                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.0.8.RELEASE/723a6003ace645386ad5c7c9417b88e1304cd606/spring-tx-4.0.8.RELEASE.jar
+7fcadc078000-7fcadc07b000 ---p 00000000 00:00 0 
+7fcadc07b000-7fcadc179000 rw-p 00000000 00:00 0                          [stack:29840]
+7fcadc179000-7fcadc17c000 ---p 00000000 00:00 0 
+7fcadc17c000-7fcadc27a000 rw-p 00000000 00:00 0                          [stack:29839]
+7fcadc27a000-7fcadc292000 r--s 001a9000 08:01 32183                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.0.M1/11921213a04f5bfd43713a065b2a273f04affb43/aspectjweaver-1.8.0.M1.jar
+7fcadc292000-7fcadc29a000 r--s 00057000 08:01 32703                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.apache/ecs/1.4.2/f9bc5fdde56d60876c1785087ce2a301b4e4a676/ecs-1.4.2.jar
+7fcadc29a000-7fcadc2a1000 r--s 00702000 08:01 32702                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.xuggle/xuggler/5.4.0/a9c9be30765a1f948c0cd16805107904d4ae347a/xuggler-5.4.0.jar
+7fcadc2a1000-7fcadc2c1000 r--s 001a9000 08:01 32700                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi/3.9/5d5e41354e88322e4bc590b31f3d2d1d52b3e6ac/poi-3.9.jar
+7fcadc2c1000-7fcadc327000 r--s 005b5000 08:01 32699                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.2.2/b9bf4b39c09afb24d043e15c50044986a4436edd/groovy-all-2.2.2-indy.jar
+7fcadc327000-7fcadc329000 r--s 00001000 08:01 32698                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.7/58f588119ffd1702c77ccab6acb54bfb41bed8bd/slf4j-log4j12-1.7.7.jar
+7fcadc329000-7fcadc32c000 r--s 00012000 08:01 32697                      /home/aholt/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.0.1/6bf0ebb7efd993e222fc1112377b5e92a13b38dd/javax.servlet-api-3.0.1.jar
+7fcadc32c000-7fcadc356000 r--s 001e9000 08:01 32696                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/15.0/ed727a8d9f247e2050281cb083f1c77b09dcb5cd/guava-15.0.jar
+7fcadc356000-7fcadc366000 r--s 00098000 08:01 32695                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/5.2.0.Alpha1/74d8d13698c4afbac7552c88b397db29d1094c6e/hibernate-validator-5.2.0.Alpha1.jar
+7fcadc366000-7fcadc368000 r--s 0000d000 08:01 32694                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.fasterxml/classmate/1.0.0/434efef28c81162b17c540e634cffa3bd9b09b4c/classmate-1.0.0.jar
+7fcadc368000-7fcadc36c000 r--s 0000c000 08:01 32693                      /home/aholt/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.1.0.Final/8613ae82954779d518631e05daa73a6a954817d5/validation-api-1.1.0.Final.jar
+7fcadc36c000-7fcadc40c000 r--s 005ff000 08:01 32688                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.sf.ehcache/ehcache/2.8.0/ad811324057fee5c6558d172344cca2a375b79ca/ehcache-2.8.0.jar
+7fcadc40c000-7fcadc410000 r--s 0001e000 08:01 32686                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-ehcache/4.3.1.Final/404ad22fbd2a2e472198a0890ad729ffd8ed8f57/hibernate-ehcache-4.3.1.Final.jar
+7fcadc410000-7fcadc419000 r--s 0006f000 08:01 32685                      /home/aholt/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.17/5af35056b4d257e4b64b9e8069c0746e8b08629f/log4j-1.2.17.jar
+7fcadc419000-7fcadc41d000 r--s 0000f000 08:01 32684                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/annotations/2.0.1/9ef6656259841cebfb9fb0697bb122ada4485498/annotations-2.0.1.jar
+7fcadc41d000-7fcadc428000 r--s 00062000 08:01 32682                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.acegisecurity/acegi-security/1.0.1/e9b06e5740e4c484212fc1cbb97c05cfc1b459b7/acegi-security-1.0.1.jar
+7fcadc428000-7fcadc435000 r--s 0007f000 08:01 32681                      /home/aholt/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2/f951934aa5ae5a88d7e6dfaa6d32307d834a88be/commons-collections-3.2.jar
+7fcadc435000-7fcadc437000 r--s 0000e000 08:01 32680                      /home/aholt/.gradle/caches/modules-2/files-2.1/oro/oro/2.0.8/5592374f834645c4ae250f4c9fbb314c9369d698/oro-2.0.8.jar
+7fcadc437000-7fcadc43a000 r--s 00027000 08:01 32679                      /home/aholt/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.0/b2921b7862e7b26b43aa239c2c20cc16431a8ffd/commons-lang-2.0.jar
+7fcadc43a000-7fcadc43c000 r--s 0001d000 08:01 32678                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-jdbc/7.0.57/336749c000f4a38e1b626bd9e6cc3ccdf1243799/tomcat-jdbc-7.0.57.jar
+7fcadc43c000-7fcadc43e000 r--s 00008000 08:01 32677                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/7.0.57/69dfd68d9726fdd233af18cf522c35f36dc60c2f/tomcat-juli-7.0.57.jar
+7fcadc43e000-7fcadc490000 r--s 00935000 08:01 32676                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.ibm.icu/icu4j/51.2/3afa6c786e9c3e0f51532f7365605c3f50f66400/icu4j-51.2.jar
+7fcadc490000-7fcadc492000 r--s 00015000 08:01 32675                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.i2rd.cowan.tagsoup/tagsoup/1.2.0/8e6975c68c5e03ae3c4accc85ddade3bf925d3a7/tagsoup-1.2.0.jar
+7fcadc492000-7fcadc494000 r--s 00006000 08:01 32674                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.7/2b8019b6249bb05d81d3a3094e468753e2b21311/slf4j-api-1.7.7.jar
+7fcadc494000-7fcadc496000 r--s 00003000 08:01 32673                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar
+7fcadc496000-7fcadc497000 r--s 00003000 08:01 32672                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.i2rd.spullara.cli-parser/cli-parser/1.1.1/30d916e0a499d3e538044697e4aa4a8cf4d074f/cli-parser-1.1.1.jar
+7fcadc497000-7fcadc498000 r--s 00004000 08:01 32671                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.sf.opencsv/opencsv/2.3/c23708cdb9e80a144db433e23344a788a1fd6599/opencsv-2.3.jar
+7fcadc498000-7fcadc49a000 r--s 00008000 08:01 32670                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.4-beta1/10a9889c6d4a40c5f65b6448f9d539406161e0d0/httpmime-4.4-beta1.jar
+7fcadc49a000-7fcadc4a1000 r--s 00078000 08:01 32669                      /home/aholt/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.5.0-b01/c128515e42609622ce3f7dc0b431026d80bdb688/mail-1.5.0-b01.jar
+7fcadc4a1000-7fcadc4a3000 r--s 0000e000 08:01 32668                      /home/aholt/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar
+7fcadc4a3000-7fcadc4a8000 r--s 0002a000 08:01 32667                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar
+7fcadc4a8000-7fcadc4b5000 r--s 0009c000 08:01 32666                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.4-beta1/7e4e60d5c7b6a72121b65ff4160f177ed563196a/httpclient-4.4-beta1.jar
+7fcadc4b5000-7fcadc4bb000 r--s 00033000 08:01 32665                      /home/aholt/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/b7f0fc8f61ecadeb3695f0b9464755eee44374d4/commons-codec-1.6.jar
+7fcadc4bb000-7fcadc4c2000 r--s 00047000 08:01 32664                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4-beta1/60b9470ccac8c2fbd7a1d988b79ee84a068bc269/httpcore-4.4-beta1.jar
+7fcadc4c2000-7fcadc4d3000 r--s 000e8000 08:01 32663                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.freemarker/freemarker/2.3.20/5ad6bea46b5af666d88c260c8acc6a03408723c8/freemarker-2.3.20.jar
+7fcadc4d3000-7fcadc4d9000 r--s 0003e000 08:01 32662                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.6.3/5cf4f55a71ae352d9c13ede8388974527540e506/jsoup-1.6.3.jar
+7fcadc4d9000-7fcadc4e5000 r--s 00108000 08:01 32627                      /home/aholt/.gradle/caches/modules-2/files-2.1/com.lowagie/itext/2.1.7/892bfb3e97074a61123b3b2d7caa2db112750864/itext-2.1.7.jar
+7fcadc4e5000-7fcadc4e6000 r--s 00005000 08:01 32557                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bctsp-jdk14/1.38/4821122f8390d15f4b5ee652621e2a2bb1f1bf16/bctsp-jdk14-1.38.jar
+7fcadc4e6000-7fcadc4ea000 r--s 0002b000 08:01 32556                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcmail-jdk14/1.38/14ff2dfec8578f5f6838c4d6a77a86789afe5382/bcmail-jdk14-1.38.jar
+7fcadc4ea000-7fcadc50b000 r--s 0015a000 08:01 32555                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk14/1.38/de366c3243a586eb3c0e2bcde1ed9bb1bfb985ff/bcprov-jdk14-1.38.jar
+7fcadc50b000-7fcadc52c000 r--s 0015a000 08:01 32554                      /home/aholt/.gradle/caches/modules-2/files-2.1/bouncycastle/bcprov-jdk14/138/de366c3243a586eb3c0e2bcde1ed9bb1bfb985ff/bcprov-jdk14-138.jar
+7fcadc52c000-7fcadc530000 r--s 0002b000 08:01 32551                      /home/aholt/.gradle/caches/modules-2/files-2.1/bouncycastle/bcmail-jdk14/138/14ff2dfec8578f5f6838c4d6a77a86789afe5382/bcmail-jdk14-138.jar
+7fcadc530000-7fcadc58e000 r--s 0049c000 08:01 32548                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-core/4.3.1.Final/73618cbf2dd1fa989a13d9444d4f025cfc51ec10/hibernate-core-4.3.1.Final.jar
+7fcadc58e000-7fcadc590000 r--s 00011000 08:01 32661                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.jboss/jandex/1.1.0.Final/e84a2122e76f0b6503be78094ddf2108057ac15f/jandex-1.1.0.Final.jar
+7fcadc590000-7fcadc595000 r--s 00068000 08:01 32660                      /home/aholt/.gradle/caches/modules-2/files-2.1/antlr/antlr/2.7.7/83cd2cd674a217ade95a4bb83a8a14f351f48bd0/antlr-2.7.7.jar
+7fcadc595000-7fcadc59f000 r--s 000a5000 08:01 32659                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.18.1-GA/d9a09f7732226af26bf99f19e2cffe0ae219db5b/javassist-3.18.1-GA.jar
+7fcadc59f000-7fcadc5a4000 r--s 00017000 08:01 32658                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/1.0.0.Final/5e731d961297e5a07290bfaf3db1fbc8bbbf405a/hibernate-jpa-2.1-api-1.0.0.Final.jar
+7fcadc5a4000-7fcadc5a7000 r--s 00010000 08:01 32657                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.hibernate.common/hibernate-commons-annotations/4.0.4.Final/f1af75eca4e13ac0578750a497159695feceebfc/hibernate-commons-annotations-4.0.4.Final.jar
+7fcadc5a7000-7fcadc5ac000 r--s 00048000 08:01 32656                      /home/aholt/.gradle/caches/modules-2/files-2.1/dom4j/dom4j/1.6.1/5d3ccc056b6f056dbf0dddfdf43894b9065a8f94/dom4j-1.6.1.jar
+7fcadc5ac000-7fcadc5ad000 r--s 00006000 08:01 32655                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.jboss.spec.javax.transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/1f9fef7a9fcbb41cc390fc370a291cf30729e094/jboss-transaction-api_1.2_spec-1.0.0.Final.jar
+7fcadc5ad000-7fcadc5ae000 r--s 00002000 08:01 32654                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.jboss.logging/jboss-logging-annotations/1.2.0.Beta1/2f437f37bb265d9f8f1392823dbca12d2bec06d6/jboss-logging-annotations-1.2.0.Beta1.jar
+7fcadc5ae000-7fcadc5b0000 r--s 0000c000 08:01 32653                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.jboss.logging/jboss-logging/3.1.3.GA/64499e907f19e5e1b3fdc02f81440c1832fe3545/jboss-logging-3.1.3.GA.jar
+7fcadc5b0000-7fcadc5b3000 r--s 0001b000 08:01 32652                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework.shell/spring-shell/1.0.0.RELEASE/eccd75d836dfa46fabfcdfb6e3ff1892013bc7e8/spring-shell-1.0.0.RELEASE.jar
+7fcadc5b3000-7fcadc5ba000 r--s 00040000 08:01 32651                      /home/aholt/.gradle/caches/modules-2/files-2.1/cglib/cglib/2.2.2/a47a971686474124562bdd4a7ccbd8ac8c3e8b11/cglib-2.2.2.jar
+7fcadc5ba000-7fcadc5bb000 r--s 0000a000 08:01 32650                      /home/aholt/.gradle/caches/modules-2/files-2.1/asm/asm/3.3.1/1d5f20b4ea675e6fab6ab79f1cd60ec268ddc015/asm-3.3.1.jar
+7fcadc5bb000-7fcadc5bf000 r--s 00029000 08:01 32649                      /home/aholt/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.3/cd8d6ffc833cc63c30d712a180f4663d8f55799b/commons-io-2.3.jar
+7fcadc5bf000-7fcadc5c2000 r--s 00019000 08:01 32648                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.fusesource.jansi/jansi/1.8/81da0c3980e30744184bec4706cf6f4508d3d7ea/jansi-1.8.jar
+7fcadc5c2000-7fcadc5c4000 r--s 00015000 08:01 32647                      /home/aholt/.gradle/caches/modules-2/files-2.1/net.sourceforge.jline/jline/1.0.S2-B/bcdfd4466c3317117e93b194b438e31f053e3016/jline-1.0.S2-B.jar
+7fcadc5c4000-7fcadc5c7000 r--s 00018000 08:01 32646                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/3.1.2.RELEASE/7873812d2c36b7478bf885a82834d6740de83c9d/spring-context-support-3.1.2.RELEASE.jar
+7fcadc5c7000-7fcadc5c9000 r--s 00000000 08:01 32645                      /home/aholt/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar
+7fcadc5c9000-7fcadc5ce000 r--s 0002e000 08:01 32644                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.0.8.RELEASE/268d87575d0cbf23fd43910ca75d0c0e21642144/spring-expression-4.0.8.RELEASE.jar
+7fcadc5ce000-7fcadc5d0000 r--s 0000e000 08:01 32643                      /home/aholt/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.3/f6f66e966c70a83ffbdb6f17a0919eaf7c8aca7f/commons-logging-1.1.3.jar
+7fcadc5d0000-7fcadc5df000 r--s 0019c000 08:01 32641                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.orbit/org.eclipse.jdt.core/3.7.1/5b79bfee0852ca685e33cab74496fa3400271b5b/org.eclipse.jdt.core-3.7.1.jar
+7fcadc5df000-7fcadc5e2000 r--s 0001d000 08:01 32640                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.orbit/com.sun.el/2.2.0.v201108011116/15f7774c3fa514835a371f47c152317704ea411a/com.sun.el-2.2.0.v201108011116.jar
+7fcadc5e2000-7fcadc5e4000 r--s 0000b000 08:01 32639                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.orbit/javax.el/2.2.0.v201108011116/ec8944c11833d84b0283a5afbad0fafb264f86a9/javax.el-2.2.0.v201108011116.jar
+7fcadc5e4000-7fcadc5ec000 r--s 00061000 08:01 32638                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.orbit/org.apache.taglibs.standard.glassfish/1.2.0.v201112081803/2c4baa72af1d3aae3a1e029d4f8ca07498dabbe0/org.apache.taglibs.standard.glassfish-1.2.0.v201112081803.jar
+7fcadc5ec000-7fcadc5ee000 r--s 0000b000 08:01 32637                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.orbit/javax.servlet.jsp.jstl/1.2.0.v201105211821/db594f1c8fc00d536f6d135bd7f8a9a99a6b8eea/javax.servlet.jsp.jstl-1.2.0.v201105211821.jar
+7fcadc5ee000-7fcadc5f5000 r--s 0008a000 08:01 32636                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.orbit/org.apache.jasper.glassfish/2.2.2.v201112011158/3945afe6a042228a92da320aec3fa1bc1308183b/org.apache.jasper.glassfish-2.2.2.v201112011158.jar
+7fcadc5f5000-7fcadc5f7000 r--s 00018000 08:01 32635                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.orbit/javax.servlet.jsp/2.2.0.v201112011158/80b4ffe7c26ee97313bea2ddda5835fd38812ee4/javax.servlet.jsp-2.2.0.v201112011158.jar
+7fcadc5f7000-7fcadc5fa000 r--s 0002e000 08:01 32634                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.orbit/javax.servlet/3.0.0.v201112011016/aaaa85845fb5c59da00193f06b8e5278d8bf3f8/javax.servlet-3.0.0.v201112011016.jar
+7fcadc5fa000-7fcadc602000 r--s 00052000 08:01 32633                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-orm/4.0.8.RELEASE/63870e1c5df9caa64ccd8de6b7c47799951c0db6/spring-orm-4.0.8.RELEASE.jar
+7fcadc602000-7fcadc611000 r--s 00095000 08:01 32632                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.0.8.RELEASE/85dab193e5ca1b1ccf2b437895f36c62d3fecc/spring-web-4.0.8.RELEASE.jar
+7fcadc611000-7fcadc615000 r--s 00019000 08:01 32630                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjrt/1.8.0/302d0fe0abba26bbf5f31c3cd5337b3125c744e3/aspectjrt-1.8.0.jar
+7fcadc615000-7fcadc61f000 r--s 0005e000 08:01 32631                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.0.8.RELEASE/3ad89ae9e0026af794e78c2768e63401908f4c/spring-jdbc-4.0.8.RELEASE.jar
+7fcadc61f000-7fcadc628000 r--s 0004e000 08:01 32629                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.0.8.RELEASE/1210bbe8cd82dc0f4e09fd7739bd5a5282b41eae/spring-aop-4.0.8.RELEASE.jar
+7fcadc628000-7fcadc62b000 ---p 00000000 00:00 0 
+7fcadc62b000-7fcadc729000 rw-p 00000000 00:00 0                          [stack:29838]
+7fcadc729000-7fcadc9f2000 r--p 00000000 08:01 1401                       /usr/lib/locale/locale-archive
+7fcadc9f2000-7fcadc9f5000 ---p 00000000 00:00 0 
+7fcadc9f5000-7fcadcaf3000 rw-p 00000000 00:00 0                          [stack:29837]
+7fcadcaf3000-7fcadcaf6000 ---p 00000000 00:00 0 
+7fcadcaf6000-7fcadcbf4000 rw-p 00000000 00:00 0                          [stack:29836]
+7fcadcbf4000-7fcadcbf5000 ---p 00000000 00:00 0 
+7fcadcbf5000-7fcae0000000 rw-p 00000000 00:00 0                          [stack:29835]
+7fcae0000000-7fcae0021000 rw-p 00000000 00:00 0 
+7fcae0021000-7fcae4000000 ---p 00000000 00:00 0 
+7fcae4000000-7fcae4001000 r--s 00000000 08:01 32642                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-jsp/8.1.16.v20140903/57b91868460474389ec9d904531212c2c8ea5ec5/jetty-jsp-8.1.16.v20140903.jar
+7fcae4001000-7fcae4014000 r--s 000dc000 08:01 32626                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.0.8.RELEASE/f7e34639ad991702441db6d34e83cecc1fbb7160/spring-core-4.0.8.RELEASE.jar
+7fcae4014000-7fcae4020000 r--s 00098000 08:01 32624                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.0.8.RELEASE/39d7f765586816fbfeb622a185865291527eb5d5/spring-beans-4.0.8.RELEASE.jar
+7fcae4020000-7fcae4037000 r--s 000d9000 08:01 32623                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.0.8.RELEASE/1a2e43d0e5bac4f4c3755ba74f66a3c270d41e26/spring-context-4.0.8.RELEASE.jar
+7fcae4037000-7fcae4042000 r--s 00063000 08:01 32622                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.0.8.RELEASE/baa4cdf70338115cb1143d4bb076b27e43a48e57/spring-test-4.0.8.RELEASE.jar
+7fcae4042000-7fcae4046000 r--s 00093000 08:01 182935                     /usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar
+7fcae4046000-7fcae4059000 r--s 00344000 08:01 182930                     /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar
+7fcae4059000-7fcae4072000 r--s 001ea000 08:01 182886                     /usr/lib/jvm/java-8-oracle/jre/lib/deploy.jar
+7fcae4072000-7fcae407c000 r--s 00069000 08:01 182883                     /usr/lib/jvm/java-8-oracle/jre/lib/javaws.jar
+7fcae407c000-7fcae44cf000 rw-p 00000000 00:00 0 
+7fcae44cf000-7fcae46a5000 r--s 03caa000 08:01 182888                     /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+7fcae46a5000-7fcae48a5000 rw-p 00000000 00:00 0 
+7fcae48a5000-7fcae48a6000 ---p 00000000 00:00 0 
+7fcae48a6000-7fcae49a6000 rw-p 00000000 00:00 0                          [stack:29834]
+7fcae49a6000-7fcae49a7000 ---p 00000000 00:00 0 
+7fcae49a7000-7fcae4aa7000 rw-p 00000000 00:00 0                          [stack:29833]
+7fcae4aa7000-7fcae4aa8000 ---p 00000000 00:00 0 
+7fcae4aa8000-7fcae4ba8000 rw-p 00000000 00:00 0                          [stack:29832]
+7fcae4ba8000-7fcae4ba9000 ---p 00000000 00:00 0 
+7fcae4ba9000-7fcae4cdc000 rw-p 00000000 00:00 0                          [stack:29831]
+7fcae4cdc000-7fcae4dff000 ---p 00000000 00:00 0 
+7fcae4dff000-7fcae4e32000 rw-p 00000000 00:00 0 
+7fcae4e32000-7fcae4f54000 ---p 00000000 00:00 0 
+7fcae4f54000-7fcae4feb000 rw-p 00000000 00:00 0 
+7fcae4feb000-7fcae4fff000 ---p 00000000 00:00 0 
+7fcae4fff000-7fcae5000000 rw-p 00000000 00:00 0 
+7fcae5000000-7fcae5950000 rwxp 00000000 00:00 0 
+7fcae5950000-7fcaf4000000 ---p 00000000 00:00 0 
+7fcaf4000000-7fcaf5226000 rw-p 00000000 00:00 0 
+7fcaf5226000-7fcaf8000000 ---p 00000000 00:00 0 
+7fcaf8000000-7fcaf8002000 r--s 0000b000 08:01 32625                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aspects/4.0.8.RELEASE/991d08509229c034c3476eff5ca3131e0504077d/spring-aspects-4.0.8.RELEASE.jar
+7fcaf8002000-7fcaf8004000 r--s 0001a000 08:01 182913                     /usr/lib/jvm/java-8-oracle/jre/lib/jce.jar
+7fcaf8004000-7fcaf8009000 r--s 00084000 08:01 182892                     /usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar
+7fcaf8009000-7fcaf801c000 r--s 000d5000 08:01 182808                     /usr/lib/jvm/java-8-oracle/jre/lib/plugin.jar
+7fcaf801c000-7fcaf8042000 rw-p 00000000 00:00 0 
+7fcaf8042000-7fcaf83dc000 ---p 00000000 00:00 0 
+7fcaf83dc000-7fcaf83f6000 r-xp 00000000 08:01 182870                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7fcaf83f6000-7fcaf85f6000 ---p 0001a000 08:01 182870                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7fcaf85f6000-7fcaf85f7000 rw-p 0001a000 08:01 182870                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7fcaf85f7000-7fcaf8602000 r-xp 00000000 08:01 790840                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7fcaf8602000-7fcaf8801000 ---p 0000b000 08:01 790840                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7fcaf8801000-7fcaf8802000 r--p 0000a000 08:01 790840                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7fcaf8802000-7fcaf8803000 rw-p 0000b000 08:01 790840                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7fcaf8803000-7fcaf880e000 r-xp 00000000 08:01 791071                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7fcaf880e000-7fcaf8a0d000 ---p 0000b000 08:01 791071                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7fcaf8a0d000-7fcaf8a0e000 r--p 0000a000 08:01 791071                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7fcaf8a0e000-7fcaf8a0f000 rw-p 0000b000 08:01 791071                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7fcaf8a0f000-7fcaf8a26000 r-xp 00000000 08:01 790826                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+7fcaf8a26000-7fcaf8c25000 ---p 00017000 08:01 790826                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+7fcaf8c25000-7fcaf8c26000 r--p 00016000 08:01 790826                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+7fcaf8c26000-7fcaf8c27000 rw-p 00017000 08:01 790826                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+7fcaf8c27000-7fcaf8c29000 rw-p 00000000 00:00 0 
+7fcaf8c29000-7fcaf8c32000 r-xp 00000000 08:01 790848                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7fcaf8c32000-7fcaf8e31000 ---p 00009000 08:01 790848                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7fcaf8e31000-7fcaf8e32000 r--p 00008000 08:01 790848                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7fcaf8e32000-7fcaf8e33000 rw-p 00009000 08:01 790848                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7fcaf8e33000-7fcaf8e3d000 r-xp 00000000 08:01 182881                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libinstrument.so
+7fcaf8e3d000-7fcaf903c000 ---p 0000a000 08:01 182881                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libinstrument.so
+7fcaf903c000-7fcaf903d000 rw-p 00009000 08:01 182881                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libinstrument.so
+7fcaf903d000-7fcaf9067000 r-xp 00000000 08:01 182864                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7fcaf9067000-7fcaf9267000 ---p 0002a000 08:01 182864                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7fcaf9267000-7fcaf9269000 rw-p 0002a000 08:01 182864                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7fcaf9269000-7fcaf9276000 r-xp 00000000 08:01 182844                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7fcaf9276000-7fcaf9476000 ---p 0000d000 08:01 182844                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7fcaf9476000-7fcaf9478000 rw-p 0000d000 08:01 182844                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7fcaf9478000-7fcaf947f000 r-xp 00000000 08:01 791098                     /lib/x86_64-linux-gnu/librt-2.19.so
+7fcaf947f000-7fcaf967e000 ---p 00007000 08:01 791098                     /lib/x86_64-linux-gnu/librt-2.19.so
+7fcaf967e000-7fcaf967f000 r--p 00006000 08:01 791098                     /lib/x86_64-linux-gnu/librt-2.19.so
+7fcaf967f000-7fcaf9680000 rw-p 00007000 08:01 791098                     /lib/x86_64-linux-gnu/librt-2.19.so
+7fcaf9680000-7fcaf9785000 r-xp 00000000 08:01 790824                     /lib/x86_64-linux-gnu/libm-2.19.so
+7fcaf9785000-7fcaf9984000 ---p 00105000 08:01 790824                     /lib/x86_64-linux-gnu/libm-2.19.so
+7fcaf9984000-7fcaf9985000 r--p 00104000 08:01 790824                     /lib/x86_64-linux-gnu/libm-2.19.so
+7fcaf9985000-7fcaf9986000 rw-p 00105000 08:01 790824                     /lib/x86_64-linux-gnu/libm-2.19.so
+7fcaf9986000-7fcafa5f3000 r-xp 00000000 08:01 299578                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7fcafa5f3000-7fcafa7f2000 ---p 00c6d000 08:01 299578                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7fcafa7f2000-7fcafa8c8000 rw-p 00c6c000 08:01 299578                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7fcafa8c8000-7fcafa90b000 rw-p 00000000 00:00 0 
+7fcafa90b000-7fcafaac6000 r-xp 00000000 08:01 791082                     /lib/x86_64-linux-gnu/libc-2.19.so
+7fcafaac6000-7fcafacc6000 ---p 001bb000 08:01 791082                     /lib/x86_64-linux-gnu/libc-2.19.so
+7fcafacc6000-7fcafacca000 r--p 001bb000 08:01 791082                     /lib/x86_64-linux-gnu/libc-2.19.so
+7fcafacca000-7fcafaccc000 rw-p 001bf000 08:01 791082                     /lib/x86_64-linux-gnu/libc-2.19.so
+7fcafaccc000-7fcafacd1000 rw-p 00000000 00:00 0 
+7fcafacd1000-7fcafacd4000 r-xp 00000000 08:01 790844                     /lib/x86_64-linux-gnu/libdl-2.19.so
+7fcafacd4000-7fcafaed3000 ---p 00003000 08:01 790844                     /lib/x86_64-linux-gnu/libdl-2.19.so
+7fcafaed3000-7fcafaed4000 r--p 00002000 08:01 790844                     /lib/x86_64-linux-gnu/libdl-2.19.so
+7fcafaed4000-7fcafaed5000 rw-p 00003000 08:01 790844                     /lib/x86_64-linux-gnu/libdl-2.19.so
+7fcafaed5000-7fcafaeea000 r-xp 00000000 08:01 182951                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7fcafaeea000-7fcafb0e9000 ---p 00015000 08:01 182951                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7fcafb0e9000-7fcafb0ea000 rw-p 00014000 08:01 182951                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7fcafb0ea000-7fcafb103000 r-xp 00000000 08:01 790835                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+7fcafb103000-7fcafb302000 ---p 00019000 08:01 790835                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+7fcafb302000-7fcafb303000 r--p 00018000 08:01 790835                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+7fcafb303000-7fcafb304000 rw-p 00019000 08:01 790835                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+7fcafb304000-7fcafb308000 rw-p 00000000 00:00 0 
+7fcafb308000-7fcafb32b000 r-xp 00000000 08:01 791045                     /lib/x86_64-linux-gnu/ld-2.19.so
+7fcafb32b000-7fcafb32c000 r--s 00001000 08:01 32628                      /home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-instrument/4.0.8.RELEASE/f634ad533b22c4dc5f659e7471b2df6de4c06873/spring-instrument-4.0.8.RELEASE.jar
+7fcafb32c000-7fcafb32e000 r--s 00007000 08:01 182891                     /usr/lib/jvm/java-8-oracle/jre/lib/jfxswt.jar
+7fcafb32e000-7fcafb333000 r--s 002f8000 08:01 182821                     /usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar
+7fcafb333000-7fcafb404000 rw-p 00000000 00:00 0 
+7fcafb404000-7fcafb407000 ---p 00000000 00:00 0 
+7fcafb407000-7fcafb509000 rw-p 00000000 00:00 0                          [stack:29830]
+7fcafb509000-7fcafb50a000 r--s 00000000 08:01 182669                     /usr/lib/jvm/java-8-oracle/jre/lib/management-agent.jar
+7fcafb50a000-7fcafb51e000 rw-p 00000000 00:00 0 
+7fcafb51e000-7fcafb526000 rw-s 00000000 08:01 1314718                    /tmp/hsperfdata_aholt/29828
+7fcafb526000-7fcafb527000 rw-p 00000000 00:00 0 
+7fcafb527000-7fcafb528000 ---p 00000000 00:00 0 
+7fcafb528000-7fcafb52a000 rw-p 00000000 00:00 0 
+7fcafb52a000-7fcafb52b000 r--p 00022000 08:01 791045                     /lib/x86_64-linux-gnu/ld-2.19.so
+7fcafb52b000-7fcafb52c000 rw-p 00023000 08:01 791045                     /lib/x86_64-linux-gnu/ld-2.19.so
+7fcafb52c000-7fcafb52d000 rw-p 00000000 00:00 0 
+7fff9daed000-7fff9db18000 rw-p 00000000 00:00 0                          [stack]
+7fff9dbfe000-7fff9dc00000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Dorg.aspectj.weaver.showWeaveInfo=true -javaagent:/opt/workspaces/final_project/runtime-aspects/spring-instrument.jar -javaagent:/opt/workspaces/final_project/runtime-aspects/aspectjweaver.jar -Xmx1024M -XX:MaxPermSize=368m -Duser.timezone=UTC -Djava.awt.headless=true -Xverify:none -Dspring.config=com.final_project.app.config.MyAppConfig -Djava.util.logging.config.file=/opt/workspaces/final_project/src/main/webapp/META-INF/resources/logging/logging-dev.properties -Dspring.properties=file:///opt/workspaces/final_project/src/main/webapp/META-INF/resources/contexts/development.properties -Dcom.i2rd.java.ecommerce.CleanupPartialDataRunnable=disable -Djava.io.tmpdir=/tmp/final_project -Dqrelay.autostart=false -DRebuildSessionFactoryDelay=1 -Dfilesystem.native.lock=false -DStaticKeyDataConfig=true -Didea.launcher.port=7532 -Didea.launcher.bin.path=/etc/idea/idea-IC-139.225.3/bin -Dfile.encoding=UTF-8 
+java_command: com.intellij.rt.execution.application.AppMain net.proteusframework.cms.controller.Cms
+java_class_path (initial): /usr/lib/jvm/java-8-oracle/jre/lib/management-agent.jar:/usr/lib/jvm/java-8-oracle/jre/lib/plugin.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/javaws.jar:/usr/lib/jvm/java-8-oracle/jre/lib/deploy.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfxswt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-8-oracle/jre/lib/ext/jfxrt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-8-oracle/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-8-oracle/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-8-oracle/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-8-oracle/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-8-oracle/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-8-oracle/jre/lib/ext/sunec.jar:/opt/workspaces/final_project/build/gradle/classes/main:/opt/workspaces/final_project/build/gradle/resources/main:/home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.0.8.RELEASE/baa4cdf70338115cb1143d4bb076b27e43a48e57/spring-test-4.0.8.RELEASE.jar:/home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.0.8.RELEASE/1a2e43d0e5bac4f4c3755ba74f66a3c270d41e26/spring-context-4.0.8.RELEASE.jar:/home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.0.8.RELEASE/39d7f765586816fbfeb622a185865291527eb5d5/spring-beans-4.0.8.RELEASE.jar:/home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aspects/4.0.8.RELEASE/991d08509229c034c3476eff5ca3131e0504077d/spring-aspects-4.0.8.RELEASE.jar:/home/aholt/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.0.8.RELEASE/f7e34639ad991702441db6d34e83cecc1fbb7160/spring-core-4.0.8.RELEASE.jar:/home/aholt/.gradle/caches/modules-2/files-2.1/or
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+CLASSPATH=/etc/idea/idea-IC-139.225.3/bin/../lib/bootstrap.jar:/etc/idea/idea-IC-139.225.3/bin/../lib/extensions.jar:/etc/idea/idea-IC-139.225.3/bin/../lib/util.jar:/etc/idea/idea-IC-139.225.3/bin/../lib/jdom.jar:/etc/idea/idea-IC-139.225.3/bin/../lib/log4j.jar:/etc/idea/idea-IC-139.225.3/bin/../lib/trove4j.jar:/etc/idea/idea-IC-139.225.3/bin/../lib/jna.jar:/usr/lib/jvm/java-8-oracle/lib/tools.jar
+PATH=/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin
+LD_LIBRARY_PATH=/etc/idea/idea-IC-139.225.3/bin:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xa79a80], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xa79a80], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x8e24e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x8e24e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x8e24e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x8e24e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x8e3d10], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x8e50d0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x8e50d0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x8e50d0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x8e50d0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=14.04
+DISTRIB_CODENAME=trusty
+DISTRIB_DESCRIPTION="Ubuntu 14.04.1 LTS"
+
+uname:Linux 3.13.0-40-generic #69-Ubuntu SMP Thu Nov 13 17:53:56 UTC 2014 x86_64
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 31366, NOFILE 4096, AS infinity
+load average:1.26 1.14 0.83
+
+/proc/meminfo:
+MemTotal:        4044692 kB
+MemFree:          107892 kB
+Buffers:             328 kB
+Cached:            19520 kB
+SwapCached:         2228 kB
+Active:          2159680 kB
+Inactive:         773516 kB
+Active(anon):    2159476 kB
+Inactive(anon):   769412 kB
+Active(file):        204 kB
+Inactive(file):     4104 kB
+Unevictable:          16 kB
+Mlocked:              16 kB
+SwapTotal:       2022336 kB
+SwapFree:              0 kB
+Dirty:                52 kB
+Writeback:             0 kB
+AnonPages:       2911772 kB
+Mapped:             1624 kB
+Shmem:             15128 kB
+Slab:              77136 kB
+SReclaimable:      39932 kB
+SUnreclaim:        37204 kB
+KernelStack:        5392 kB
+PageTables:        39988 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     4044680 kB
+Committed_AS:    7347764 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      171392 kB
+VmallocChunk:   34359485840 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    776192 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       87936 kB
+DirectMap2M:     4106240 kB
+
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4700HQ CPU @ 2.40GHz
+stepping	: 3
+microcode	: 0x17
+cpu MHz		: 2394.466
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx hypervisor lahf_lm ida arat epb pln pts dtherm
+bogomips	: 4788.93
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4700HQ CPU @ 2.40GHz
+stepping	: 3
+microcode	: 0x17
+cpu MHz		: 2394.466
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx hypervisor lahf_lm ida arat epb pln pts dtherm
+bogomips	: 4788.93
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4700HQ CPU @ 2.40GHz
+stepping	: 3
+microcode	: 0x17
+cpu MHz		: 2394.466
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx hypervisor lahf_lm ida arat epb pln pts dtherm
+bogomips	: 4788.93
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4700HQ CPU @ 2.40GHz
+stepping	: 3
+microcode	: 0x17
+cpu MHz		: 2394.466
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx hypervisor lahf_lm ida arat epb pln pts dtherm
+bogomips	: 4788.93
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 4044692k(107892k free), swap 2022336k(0k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.25-b02) for linux-amd64 JRE (1.8.0_25-b17), built on Sep 17 2014 17:32:11 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Fri Dec  5 10:59:32 2014
+elapsed time: 5 seconds (0d 0h 0m 5s)
+

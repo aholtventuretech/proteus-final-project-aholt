@@ -1,0 +1,95 @@
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-02 14:46:35
+help
+add admin --login admin --first ad --last min --email aholt@vipasolutions.com --password admin --role admin
+add admin --login exampleadmin --first example --last admin --email aholt@vipasolutions.com --password admin
+help
+add admin --login exampleadmin --first example --last admin --email aholt@vipasolutions.com --password Ex@mple@dmin1
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-02 15:45:18
+help
+cleanup orphaned ndes
+quit
+// proteusframework 1.0.0.RELEASE log closed at 2014-12-02 15:46:29
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-02 15:56:29
+help
+add admin --login exampleadmin --first example --last admin --email aholt@vipasolutions.com --password Ex@mple@dmin1
+quit
+// proteusframework 1.0.0.RELEASE log closed at 2014-12-02 15:57:29
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-05 17:04:01
+help
+add admin --login aholt --first alan --last holt --email aholt@vipasolutions.com
+exit
+// proteusframework 1.0.0.RELEASE log closed at 2014-12-05 17:04:41
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-05 17:05:26
+help
+add admin --login aholt --first alan --last holt --email aholt@vipasolutions.com --password 6579Ahloal
+add admin --login admin --first admin --last admin --email aholt@vipasolutions.com --password admin
+add admin --login admin --first admin --last admin --email aholt@vipasolutions.com --password Admin123
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-05 18:11:16
+help
+dc list
+dc run --user aholt
+help
+dc list
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-07 05:36:12
+help
+orm2dc
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-07 05:46:22
+help
+dc list
+dc run --user aholt
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-07 05:49:08
+help
+dc list
+dc run --user aholt
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-07 05:50:45
+dc run --user aholt
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-07 05:51:35
+dc run --user aholt
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-07 05:52:19
+dc run --user aholt
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-07 05:53:14
+dc run --user aholt
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-08 15:23:02
+help
+orm2dc
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-08 15:28:02
+help
+dc list
+dc run --user aholt
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-08 15:30:59
+help
+dc list
+dc run --user aholt
+exit
+// proteusframework 1.0.0.RELEASE log closed at 2014-12-08 15:31:19
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-08 17:41:02
+help
+orm2dc
+dc list
+help
+exit
+// proteusframework 1.0.0.RELEASE log closed at 2014-12-08 17:42:12
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-08 18:59:11
+help
+orm2dc
+exit
+// proteusframework 1.0.0.RELEASE log closed at 2014-12-08 19:00:01
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-08 19:01:09
+dc list
+dc run --user aholt
+exit
+// proteusframework 1.0.0.RELEASE log closed at 2014-12-08 19:01:21
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-08 19:15:25
+help
+orm2dc
+exit
+// proteusframework 1.0.0.RELEASE log closed at 2014-12-08 19:16:07
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-08 19:17:38
+dc list
+dc run --user aholt
+// proteusframework 1.0.0.RELEASE log opened at 2014-12-08 19:20:48
+help
+dc list
+dc run --user aholt
+exit
+// proteusframework 1.0.0.RELEASE log closed at 2014-12-08 19:21:03

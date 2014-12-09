@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: net.proteusframework:proteusframework-cms:0.10.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-cms/0.10.2/7cdbfad9e75987752f620cbb76e919941dfe73a/proteusframework-cms-0.10.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.proteusframework/proteusframework-cms/0.10.2/c962575df0532b3820826b623d4bcf6a45c51bae/proteusframework-cms-0.10.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
