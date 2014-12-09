@@ -71,6 +71,7 @@ public class ProfessorDetailsCmsBean extends AbstractContentElement
 
         public String getProfileView(ProfessorProjProfile profile) {
             StringBuilder sb = new StringBuilder();
+            sb.append(getProfileView_Header(profile));
             sb.append("<div class='profile_view container'>");
                 sb.append(getProfileView_Name(profile));
                 sb.append(getProfileView_Slug(profile));
@@ -79,6 +80,12 @@ public class ProfessorDetailsCmsBean extends AbstractContentElement
                 sb.append(getProfileView_AreaOfResearch(profile));
                 sb.append(getProfileView_OnSabbatical(profile));
             sb.append("</div>");
+            return sb.toString();
+        }
+
+        public String getProfileView_Header(ProfessorProjProfile profile) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("<h2 class='profile_view header'>Profile View: " + profile.getName() + "</h2>");
             return sb.toString();
         }
 

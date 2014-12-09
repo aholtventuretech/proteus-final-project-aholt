@@ -65,7 +65,7 @@ public class ProfessorProjProfileEditor extends EntityValueEditor<ProfessorProjP
         _nameField.setText(value.getName());
         _slugField.setText(value.getSlug());
         _dateJoinedCalendar.setDate(value.getDateJoined());
-        _typeCombo.setSelectedObject(value.getProfessorType());
+        _typeCombo.setSelectedObject(value.getProfessorType().toString());
         _areaOfResearchField.setText(value.getAreaOfResearch());
         _onSabbaticalChekbox.setSelected(value.getOnSabbatical());
 
