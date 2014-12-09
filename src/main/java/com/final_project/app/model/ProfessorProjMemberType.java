@@ -18,17 +18,23 @@ public enum ProfessorProjMemberType implements ProfessorsMemberType
     public boolean manageProfessorMembers() { return true; }
 
     public static ProfessorProjMemberType getMemberType(String memberTypeString) {
-        switch(memberTypeString) {
-            case "Lecturer":
-                return Lecturer;
-            case "AdjunctProfessor":
-                return AdjunctProfessor;
-            case "AssistantProfessor":
-                return AssistantProfessor;
-            case "AssociateProfessor":
-                return AssociateProfessor;
-            default:
-                return Professor;
+        if(memberTypeString != null)
+        {
+            switch (memberTypeString)
+            {
+                case "Lecturer":
+                    return Lecturer;
+                case "AdjunctProfessor":
+                    return AdjunctProfessor;
+                case "AssistantProfessor":
+                    return AssistantProfessor;
+                case "AssociateProfessor":
+                    return AssociateProfessor;
+                default:
+                    return Professor;
+            }
+        } else {
+            return Professor;
         }
     }
 }
