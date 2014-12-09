@@ -27,6 +27,7 @@ import net.proteusframework.ui.column.FixedValueColumn;
 import net.proteusframework.ui.column.PropertyColumn;
 import net.proteusframework.ui.miwt.AbstractAction;
 import net.proteusframework.ui.miwt.History;
+import net.proteusframework.ui.miwt.component.Component;
 import net.proteusframework.ui.miwt.component.Container;
 import net.proteusframework.ui.miwt.component.Field;
 import net.proteusframework.ui.miwt.component.PushButton;
@@ -93,7 +94,7 @@ public class ProfessorListViewApp extends Container
         PropertyColumn idPropColumn = new PropertyColumn(ProfessorProjProfile.class, "id");
 
         SearchResultColumnImpl nameColumnImpl = new SearchResultColumnImpl();
-        PropertyColumn namePropColumn = new PropertyColumn(ProfessorProjProfile.class , "name");
+        FixedValueColumn namePropColumn = new FixedValueColumn();
 
         SearchResultColumnImpl slugColumnImpl = new SearchResultColumnImpl();
         PropertyColumn slugPropColumn = new PropertyColumn(ProfessorProjProfile.class, "slug");
@@ -104,22 +105,39 @@ public class ProfessorListViewApp extends Container
         SearchResultColumnImpl professorTypeColumnImpl = new SearchResultColumnImpl();
         PropertyColumn professorTypePropColumn = new PropertyColumn(ProfessorProjProfile.class, "professorType");
 
+        SearchResultColumnImpl areaOfResearchColumnImpl = new SearchResultColumnImpl();
+        PropertyColumn areaOfResearchPropColumn = new PropertyColumn(ProfessorProjProfile.class, "areaOfResearch");
+
         SearchResultColumnImpl onSabbaticalColumnImpl = new SearchResultColumnImpl();
         PropertyColumn onSabbaticalPropColumn  = new PropertyColumn(ProfessorProjProfile.class, "onSabbatical");
 
-        URILink slugLink = new URILink();
-        slugLink.addClassName("slug_link");
-        Field slugField = new Field();
-        slugField.setEnabled(false);
-        slugField.addClassName("slug_field");
+        URILink slugLink = new URILink() {
+            @Override
+            public Component getTableCellRendererComponent(Table table, Object value, boolean isSelected, boolean hasFocus, int row,
+                int column)
+            {
+                ProfessorProjProfile professor = (ProfessorProjProfile) value;
+                setText(TextSources.create(professor.getName()));
+                URI linkURI = null;
+                String linkURIString = "/details/" + professor.getSlug();
+                try {
+                    linkURI = new URI(linkURIString);
+                } catch (URISyntaxException e) {
+                    _logger.debug("Slug URI is invalid: " + linkURIString, e);
+                }
+                setUri(linkURI);
+                return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            }
+        };
 
         searchModel.getResultColumns().add(idColumnImpl.withTableColumn(idPropColumn.withColumnName(TextSources.create("ID"))));
         searchModel.getResultColumns().add(nameColumnImpl.withTableColumn(namePropColumn.withColumnName(TextSources.create
             ("Name"))).withTableCellRenderer(slugLink));
-        searchModel.getResultColumns().add(slugColumnImpl.withTableColumn(slugPropColumn.withColumnName(TextSources.create
-            ("Slug"))).withTableCellRenderer(slugField));
+        searchModel.getResultColumns().add(slugColumnImpl.withTableColumn(slugPropColumn.withColumnName(TextSources.create("Slug"))));
         searchModel.getResultColumns().add(dateJoinedColumnImpl.withTableColumn(dateJoinedPropColumn.withColumnName(TextSources.create("Date Joined"))));
         searchModel.getResultColumns().add(professorTypeColumnImpl.withTableColumn(professorTypePropColumn.withColumnName(TextSources.create("Prof. Type"))));
+        searchModel.getResultColumns().add(areaOfResearchColumnImpl.withTableColumn(areaOfResearchPropColumn.withColumnName
+            (TextSources.create("Area of Research"))));
         searchModel.getResultColumns().add(onSabbaticalColumnImpl.withTableColumn(onSabbaticalPropColumn.withColumnName(TextSources.create("On Sabbatical"))));
 
         /** Search Model Constraints */
@@ -133,6 +151,8 @@ public class ProfessorListViewApp extends Container
             ("dateJoined").withOperator(PropertyConstraint.Operator.like));
         searchModel.getConstraints().add(new SimpleConstraint().withLabel(TextSources.create("Prof. Type")).withProperty
             ("professorType").withOperator(PropertyConstraint.Operator.like));
+        searchModel.getConstraints().add(new SimpleConstraint().withLabel(TextSources.create("Area of Research")).withProperty
+            ("areaOfResearch").withOperator(PropertyConstraint.Operator.like));
         searchModel.getConstraints().add(new SimpleConstraint().withLabel(TextSources.create("On Sabbatical")).withProperty
             ("onSabbatical").withOperator(PropertyConstraint.Operator.eq));
 

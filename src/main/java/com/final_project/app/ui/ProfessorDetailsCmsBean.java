@@ -52,7 +52,13 @@ public class ProfessorDetailsCmsBean extends AbstractContentElement
         private String _slug;
 
         public void render(CmsRequest<ProfessorDetailsCmsBean> request, CmsResponse response, RenderChain chain) {
-            _slug = request.getPathInfo().replace("/","");
+            try
+            {
+                _slug = request.getPathInfo().replace("/", "");
+            }catch(NullPointerException ex) {
+                _logger.debug("Path info on /details/ was null, returning empty bean response...", ex);
+                return;
+            }
 
             try{
                 ProfessorProjProfile profile = ProfessorProjDAO.getInstance().getProfileForSlug(_slug);
@@ -60,7 +66,6 @@ public class ProfessorDetailsCmsBean extends AbstractContentElement
             }catch(SlugNotPresentException ex) {
                 _logger.debug(ex.getMessage(), ex);
                 response.getContentWriter().append("<div>" + ex.getMessage() + "</div>");
-                response.getContentWriter().append(getProfileView_FacultyLink());
             }
         }
 
@@ -73,7 +78,6 @@ public class ProfessorDetailsCmsBean extends AbstractContentElement
                 sb.append(getProfileView_ProfessorType(profile));
                 sb.append(getProfileView_AreaOfResearch(profile));
                 sb.append(getProfileView_OnSabbatical(profile));
-                sb.append(getProfileView_FacultyLink());
             sb.append("</div>");
             return sb.toString();
         }
@@ -128,14 +132,6 @@ public class ProfessorDetailsCmsBean extends AbstractContentElement
             sb.append("<div class='profile_view segment onSabbatical'>");
                 sb.append("<label for='profile_view_onSabbatical'>On Sabbatical</label>");
                 sb.append("<span id='profile_view_onSabbatical'>" + profile.getOnSabbatical() + "</span>");
-            sb.append("</div>");
-            return sb.toString();
-        }
-
-        public String getProfileView_FacultyLink() {
-            StringBuilder sb = new StringBuilder();
-            sb.append("<div class='profile_view segment facultyLink'>");
-                sb.append("<a id='profile_view_facultyLink' href='/faculty'>Faculty</span>");
             sb.append("</div>");
             return sb.toString();
         }

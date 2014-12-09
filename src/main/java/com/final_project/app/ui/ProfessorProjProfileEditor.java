@@ -46,6 +46,7 @@ public class ProfessorProjProfileEditor extends EntityValueEditor<ProfessorProjP
         _areaOfResearchField = new Field();
 
         _typeCombo = new ComboBox(new SimpleListModel<>(ProfessorProjMemberType.values()));
+        _typeCombo.setEnabled(true);
 
         _dateJoinedCalendar = new Calendar();
 
